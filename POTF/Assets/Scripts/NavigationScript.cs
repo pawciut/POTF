@@ -18,7 +18,7 @@ public class NavigationScript : MonoBehaviour
 
     public void GoToCredits()
     {
-        SceneManager.LoadScene(Constants.CreditsScene);
+        SceneManager.LoadScene(Constants.CreditsSceneName);
     }
 
     public void GoToMap()

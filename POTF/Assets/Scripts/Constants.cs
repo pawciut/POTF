@@ -11,6 +11,7 @@ public class Constants
     public const string MapSceneName = "MapScene";
     public const string Mission1SceneName = "MissionAScene";
     public const string MenuSceneName = "MenuScene";
+    public const string CreditsSceneName = "CreditsScene";
 
-    
+
 }

@@ -12,13 +12,13 @@ public class NavigationScript : MonoBehaviour
 
     public void GoToHowToPlay()
     {
-        //SceneManager.LoadScene(Constants.HowToPlayScene);
+        SceneManager.LoadScene(Constants.HowToPlaySceneName);
     }
 
 
     public void GoToCredits()
     {
-        SceneManager.LoadScene(Constants.CreditsScene);
+        SceneManager.LoadScene(Constants.CreditsSceneName);
     }
 
     public void GoToMap()
@@ -29,6 +29,11 @@ public class NavigationScript : MonoBehaviour
     public void GoToMission1()
     {
         SceneManager.LoadScene(Constants.Mission1SceneName);
+    }
+
+    public void GoToOption()
+    {
+        SceneManager.LoadScene(Constants.OptionSceneName);
     }
 
 

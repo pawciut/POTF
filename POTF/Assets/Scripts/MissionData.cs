@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// data for event - mission occuring in map scene -> mission scene?
+/// </summary>
 public class MissionData
 {
     public string Name;

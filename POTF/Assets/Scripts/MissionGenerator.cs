@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
+/// <summary>
+/// used for generating random missions/events
+/// </summary>
 public partial class MissionGenerator
 {
     //Events & missions

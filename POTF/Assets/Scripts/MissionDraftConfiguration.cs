@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// data used for generating random missions
+/// </summary>
 public class MissionDraftConfiguration
 {
     public int BaseExp = 20;

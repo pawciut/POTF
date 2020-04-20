@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// script used for presenting information about mission on UI in mission panel
+/// </summary>
 public class MissionPanelScript : MonoBehaviour
 {
     public Button AutoButton;

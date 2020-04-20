@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 /// <summary>
-/// Hero character stats and abilities
+/// character stats and abilities for player and npc
 /// </summary>
 public class CharacterData
 {

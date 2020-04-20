@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// configuration of npc's for random hostile npc generator
+/// </summary>
 public class HostileDraftConfiguration : CharacterData
 {
     public string Name = "Hostile";

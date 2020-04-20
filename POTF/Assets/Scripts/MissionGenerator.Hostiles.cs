@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 public partial class MissionGenerator
 {
+    /// <summary>
+    /// configurations for random hostile npc pool
+    /// </summary>
     public List<HostileDraftConfiguration> Config_Hostile_Pool = new List<HostileDraftConfiguration>
     {
         new HostileDraftConfiguration("Dog (Melee)",5,1,1,0,1,1, new List<ActionData>{

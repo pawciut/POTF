@@ -5,6 +5,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// logic for map scene
+/// </summary>
 public class MapLogic : MonoBehaviour
 {
     public Button StartGameButton;

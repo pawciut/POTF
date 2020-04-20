@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
+/// <summary>
+/// bazowa klasa do akcji dla npc i gracza
+/// </summary>
 public abstract class ActionData
 {
     public CharacterData Actor;
@@ -19,6 +21,9 @@ public abstract class ActionData
     }
 }
 
+/// <summary>
+/// akcja aktaku i jej parametry
+/// </summary>
 public class Action_Attack : ActionData
 {
     public int BaseDamage { get; set; } = 1;
@@ -52,6 +57,9 @@ public class Action_Attack : ActionData
 
 }
 
+/// <summary>
+/// akcja uniku i jej parametry
+/// </summary>
 public class Action_Dodge : ActionData
 {
     public override ActionTypes ActionType => ActionTypes.Dodge;
@@ -74,6 +82,9 @@ public class Action_Dodge : ActionData
     }
 }
 
+/// <summary>
+/// akcja naprawiania i jej parametry
+/// </summary>
 public class Action_Fix : ActionData
 {
     public override ActionTypes ActionType => ActionTypes.Fix;

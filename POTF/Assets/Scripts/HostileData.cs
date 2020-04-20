@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// Data for Npc
+/// </summary>
 public class HostileData : HostileDraftConfiguration
 {
     public HostileData(HostileDraftConfiguration configuration)

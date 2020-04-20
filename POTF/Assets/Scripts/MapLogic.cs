@@ -91,23 +91,6 @@ public class MapLogic : MonoBehaviour
     void UpdateCalendar()
     {
         ++TotalDays;
-        //++Day;
-        //if (Day > 7)
-        //{
-        //    ++Week;
-        //    Day = 1;
-        //}
-        //else if (Week == 0)
-        //{
-        //    Week = 1;
-        //}
-        //if (Week > 4)
-        //{
-        //    ++Month;
-        //    Week = 1;
-        //}
-        //if (Month == 0)
-        //    Month = 1;
     }
 
     public void DEBUG_AddDay()

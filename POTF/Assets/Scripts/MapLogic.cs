@@ -45,6 +45,10 @@ public class MapLogic : MonoBehaviour
     public Text StatusPanel_DateText;
     public Text StatusPanel_ActiveEffectsText;
 
+
+    //Mission TODO:
+    public GameObject MissionDemo_Panel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +64,7 @@ public class MapLogic : MonoBehaviour
     public void StartGame()
     {
         StartGameButton.gameObject.SetActive(false);
+        MissionDemo_Panel.SetActive(true);
     }
 
     void UpdateUI()

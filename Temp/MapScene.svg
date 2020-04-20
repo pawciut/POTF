@@ -70,10 +70,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.99368012"
-     inkscape:cx="1970.8856"
+     inkscape:cx="1959.3124"
      inkscape:cy="331.63749"
      inkscape:document-units="mm"
-     inkscape:current-layer="g1549"
+     inkscape:current-layer="g1521"
      showgrid="true"
      units="px"
      showborder="false"
@@ -2381,7 +2381,10 @@ EARBEAQ1Tf8Da4EW6SsbCHkAAAAASUVORK5CYII=
          id="g1521">
         <g
            id="g1529"
-           transform="matrix(1.1746662,0,0,1.1746662,-60.579292,-17.69292)">
+           transform="matrix(1.1746662,0,0,1.1746662,-60.579292,-17.69292)"
+           inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackgroundThin.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96">
           <rect
              style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:#41521f;stroke-width:0.95124918;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
              id="rect1513"
@@ -2411,7 +2414,10 @@ EARBEAQ1Tf8Da4EW6SsbCHkAAAAASUVORK5CYII=
         </g>
         <g
            transform="matrix(1.1746662,0,0,1.1746662,-30.139319,-17.69292)"
-           id="g1539">
+           id="g1539"
+           inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackgroundThin_Highlighted.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96">
           <rect
              ry="1.0020683"
              y="93.133331"
@@ -2441,7 +2447,10 @@ EARBEAQ1Tf8Da4EW6SsbCHkAAAAASUVORK5CYII=
         </g>
         <g
            id="g1549"
-           transform="matrix(1.1746662,0,0,1.1746662,-19.992661,12.747054)">
+           transform="matrix(1.1746662,0,0,1.1746662,-19.992661,12.747054)"
+           inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackgroundThin_Disabled.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96">
           <rect
              style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:#ada095;stroke-width:0.95124918;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
              id="rect1541"

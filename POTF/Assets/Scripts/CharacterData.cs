@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 /// <summary>
 /// Hero character stats and abilities
 /// </summary>
-public class HeroData
+public class CharacterData
 {
     public int Power { get; set; }
     public int Agility { get; set; }
@@ -18,8 +18,15 @@ public class HeroData
     public int CurrentLevel { get; set; }
     public int CurrentExp { get; set; }
 
-    public HeroData()
+    public int CurrentActionPoints { get; set; }
+    public int MaxActionPoints { get { return GetActionPoints(); } }
+
+    public List<ActionData> Actions { get; set; }
+
+    public CharacterData()
     {
+        Actions = new List<ActionData>();
+
         this.Power = 1;
         this.Agility = 1;
         this.Intelect = 0;
@@ -28,5 +35,10 @@ public class HeroData
 
         this.CurrentLevel = 1;
         this.CurrentExp = 0;
+    }
+
+    protected virtual int GetActionPoints()
+    {
+        return 3 + (Agility / 3);
     }
 }

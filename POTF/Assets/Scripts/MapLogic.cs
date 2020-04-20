@@ -11,27 +11,31 @@ public class MapLogic : MonoBehaviour
     public Button NextTurnButton;
 
     //Player Data
-    HeroData BearData;
+    CharacterData BearData;
 
     //TODO:PTRU
     List<System.Object> Effects;
 
     //Calendar Data
-    //int Day { get { return TotalDays>0 && TotalDays % 7 == 0? 7 : TotalDays % 7; } }
-    //int Week { get { return TotalDays > 0? (((TotalDays / 7)+1)%4) : 0; } }
-    //int Month { get { return TotalDays > 0? (((TotalDays / 7) / 4) +1 % 12): 0; } }
-
-    int Day { get { return TotalDays > 0 && TotalDays % 7 == 0 ? 7 : TotalDays % 7; } }
-    int Week { get { return TotalDays > 0 ? (((TotalDays -1)/7)%4)+1 : 0; } }
-    int Month { get { return TotalDays > 0 ? 
-                ((((TotalDays % 28 == 0) ? TotalDays / 28 : TotalDays / 28 + 1)) % 12==0?
-                   12 :
-                 (((TotalDays % 28==0)?TotalDays / 28: TotalDays / 28 + 1))%12 )
-                : 0; } }
     public int TotalDays;
+    int Day { get { return TotalDays > 0 && TotalDays % 7 == 0 ? 7 : TotalDays % 7; } }
+    int Week { get { return TotalDays > 0 ? (((TotalDays - 1) / 7) % 4) + 1 : 0; } }
+    int Month
+    {
+        get
+        {
+            return TotalDays > 0 ?
+      ((((TotalDays % 28 == 0) ? TotalDays / 28 : TotalDays / 28 + 1)) % 12 == 0 ?
+         12 :
+       (((TotalDays % 28 == 0) ? TotalDays / 28 : TotalDays / 28 + 1)) % 12)
+      : 0;
+        }
+    }
 
-    //MOD((INT((A1-1)/7)),4)+1
-    //=MOD((INT(A1/7)+1),4)
+    //MissionGenerator
+    MissionGenerator EventGenerator = new MissionGenerator();
+    List<MissionData> AvailableMissions = new List<MissionData>();
+    public int MaxMissions;
 
     //Forest Conditions
     int MaxForestHp = 10;
@@ -55,11 +59,13 @@ public class MapLogic : MonoBehaviour
     public Button StatusPanel_Button;
     public Text StatusPanel_ForestText;
     public Text StatusPanel_DateText;
+    public Text StatusPanel_UnhandledEventsText;
     public Text StatusPanel_ActiveEffectsText;
 
 
     //Mission TODO:
     public GameObject MissionDemo_Panel;
+    public RectTransform MissionContainer;
 
     // Start is called before the first frame update
     void Start()
@@ -88,6 +94,16 @@ public class MapLogic : MonoBehaviour
         UpdateForestAndDateAndEffects();
     }
 
+    void GenerateEvents()
+    {
+        var draftedEvet = EventGenerator.GetMission(BearData);
+        if (draftedEvet != null)
+        {
+            //display event on map
+        }
+    }
+
+
     void UpdateCalendar()
     {
         ++TotalDays;
@@ -107,7 +123,7 @@ public class MapLogic : MonoBehaviour
 
     public void DraftBeforeStart()
     {
-        BearData = new HeroData();
+        BearData = new CharacterData();
         UpdateUI();
 
     }
@@ -146,6 +162,7 @@ public class MapLogic : MonoBehaviour
             StatusPanel_Button.gameObject.SetActive(true);
             StatusPanel_ForestText.text = String.Format(Constants.StatusPanel_ForestConditionFormat, ForestConditionToString());
             StatusPanel_DateText.text = string.Format(Constants.StatusPanel_DateFormat, IntToValue(Day), IntToValue(Week), IntToValue(Month));
+            StatusPanel_UnhandledEventsText.text = String.Format(Constants.StatusPanel_UnhandledEventsFormat, AvailableMissions.Count, MaxMissions);
             StatusPanel_ActiveEffectsText.text = EffectsToString();
         }
     }

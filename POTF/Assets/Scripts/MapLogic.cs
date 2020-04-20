@@ -17,9 +17,21 @@ public class MapLogic : MonoBehaviour
     List<System.Object> Effects;
 
     //Calendar Data
-    public int Day;
-    public int Week;
-    public int Month;
+    //int Day { get { return TotalDays>0 && TotalDays % 7 == 0? 7 : TotalDays % 7; } }
+    //int Week { get { return TotalDays > 0? (((TotalDays / 7)+1)%4) : 0; } }
+    //int Month { get { return TotalDays > 0? (((TotalDays / 7) / 4) +1 % 12): 0; } }
+
+    int Day { get { return TotalDays > 0 && TotalDays % 7 == 0 ? 7 : TotalDays % 7; } }
+    int Week { get { return TotalDays > 0 ? (((TotalDays -1)/7)%4)+1 : 0; } }
+    int Month { get { return TotalDays > 0 ? 
+                ((((TotalDays % 28 == 0) ? TotalDays / 28 : TotalDays / 28 + 1)) % 12==0?
+                   12 :
+                 (((TotalDays % 28==0)?TotalDays / 28: TotalDays / 28 + 1))%12 )
+                : 0; } }
+    public int TotalDays;
+
+    //MOD((INT((A1-1)/7)),4)+1
+    //=MOD((INT(A1/7)+1),4)
 
     //Forest Conditions
     int MaxForestHp = 10;
@@ -65,6 +77,43 @@ public class MapLogic : MonoBehaviour
     {
         StartGameButton.gameObject.SetActive(false);
         MissionDemo_Panel.SetActive(true);
+        NextTurn();
+    }
+
+    void NextTurn()
+    {
+        //generate events
+
+        UpdateCalendar();
+        UpdateForestAndDateAndEffects();
+    }
+
+    void UpdateCalendar()
+    {
+        ++TotalDays;
+        //++Day;
+        //if (Day > 7)
+        //{
+        //    ++Week;
+        //    Day = 1;
+        //}
+        //else if (Week == 0)
+        //{
+        //    Week = 1;
+        //}
+        //if (Week > 4)
+        //{
+        //    ++Month;
+        //    Week = 1;
+        //}
+        //if (Month == 0)
+        //    Month = 1;
+    }
+
+    public void DEBUG_AddDay()
+    {
+        UpdateCalendar();
+        UpdateForestAndDateAndEffects();
     }
 
     void UpdateUI()

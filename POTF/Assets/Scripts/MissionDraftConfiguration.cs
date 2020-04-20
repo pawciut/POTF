@@ -13,4 +13,6 @@ public class MissionDraftConfiguration
     public int MaxHostiles = 0;
     public int Duration = 3;
     public int ForestDamage = 0;
+    public int RegenPlayer = 0;
+    public int RegenForest = 0;
 }

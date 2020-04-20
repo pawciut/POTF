@@ -16,6 +16,10 @@ public class MapLogic : MonoBehaviour
     //Player Data
     CharacterData BearData;
 
+    //analytics
+    bool analyticsVisible = false;
+    public GameObject AnalyticsPanel;
+
     //TODO:PTRU
     List<System.Object> Effects;
 
@@ -35,14 +39,12 @@ public class MapLogic : MonoBehaviour
         }
     }
 
-    //MissionGenerator
-    MissionGenerator EventGenerator = new MissionGenerator();
-    List<MissionData> AvailableMissions = new List<MissionData>();
-    public int MaxMissions;
+
 
     //Forest Conditions
     int MaxForestHp = 10;
-    int CurrentFoestHp = 10;
+    int CurrentForestHp = 10;
+    public AudioSource ForestDamageSound;
 
 
     //Portrait
@@ -66,13 +68,30 @@ public class MapLogic : MonoBehaviour
     public Text StatusPanel_ActiveEffectsText;
 
 
-    //Mission TODO:
-    public GameObject MissionDemo_Panel;
+    //Mission Generator
+    public const int MaxMissions = 5;
+    public GameObject MissionPanelPrefab;
     public RectTransform MissionContainer;
+    public RectTransform[] SpawnPoints = new RectTransform[MaxMissions];
+    MissionGenerator EventGenerator = new MissionGenerator();
+    /// <summary>
+    /// key spawn point index, value mission
+    /// </summary>
+    Dictionary<int, MissionData> AvailableMissions = new Dictionary<int, MissionData>(MaxMissions)
+    {
+        { 0, null },
+        { 1, null },
+        { 2, null },
+        { 3, null },
+        { 4, null },
+    };
+    GameObject[] MissionPanels = new GameObject[MaxMissions];
+
 
     // Start is called before the first frame update
     void Start()
     {
+        ResetAnalytics();
         UpdateUI();
     }
 
@@ -82,26 +101,160 @@ public class MapLogic : MonoBehaviour
 
     }
 
+    void ResetAnalytics()
+    {
+        PlayerPrefs.SetInt(Constants.Analytics_TotalScore, 0);
+        PlayerPrefs.SetInt(Constants.Analytics_TotalDays, 0);
+        PlayerPrefs.SetInt(Constants.Analytics_ReachedMaxLevel, 0);
+        PlayerPrefs.SetInt(Constants.Analytics_MissionsCompleted, 0);
+        PlayerPrefs.SetInt(Constants.Analytics_MissionsFailed, 0);
+        PlayerPrefs.SetInt(Constants.Analytics_MissionsExpired, 0);
+        PlayerPrefs.SetInt(Constants.Analytics_EnemiesSlained, 0);
+    }
+
     public void StartGame()
     {
         StartGameButton.gameObject.SetActive(false);
-        MissionDemo_Panel.SetActive(true);
+        NextTurn();
+    }
+
+    public void NextDay()
+    {
         NextTurn();
     }
 
     void NextTurn()
     {
+        //expire events
+        ExpireEvents();
+
+        //Update score before lose condition
+        PlayerPrefs.SetInt(Constants.Analytics_TotalScore, CalculateScore());
+        UpdateAnalyticsPanel();
+
+        //Check is forest still alive
+        CheckLoseConditions();
+
         //generate events
+        GenerateEvents();
 
         UpdateCalendar();
         UpdateForestAndDateAndEffects();
+        IncrementAnalytics(Constants.Analytics_TotalDays, 1);
+
+    }
+
+    int CalculateScore()
+    {
+        int total = 0;
+
+        //days
+        total += TotalDays * 2;
+
+        //missions
+        var missionsCompleted = PlayerPrefs.GetInt(Constants.Analytics_MissionsCompleted);
+        total += missionsCompleted * 10;
+
+        //level
+        total += BearData.CurrentLevel * 20;
+
+        //hp left
+        total += BearData.CurrentHp * 20;
+
+        //enemies
+        var enemiesSlained = PlayerPrefs.GetInt(Constants.Analytics_EnemiesSlained);
+        total += enemiesSlained * 5;
+
+        return total;
+    }
+
+    void ExpireEvents()
+    {
+        bool wasForestDamaged = false;
+
+        int currentIndex = -1;
+        foreach (var kvp in AvailableMissions)
+        {
+            ++currentIndex;
+
+            if (kvp.Value != null && kvp.Value.Duration > 1)
+            {
+                kvp.Value.Duration -= 1;
+                MissionPanels[currentIndex].GetComponent<MissionPanelScript>().UpdateText(kvp.Value, BearData);
+            }
+            //Expire and remove
+            else if (kvp.Value != null && kvp.Value.Duration == 1)
+            {
+                //apply effect
+                if (kvp.Value.ForestDamage > 0)
+                {
+                    CurrentForestHp -= kvp.Value.ForestDamage;
+                    wasForestDamaged = true;
+                }
+
+
+                //remove panel
+                Destroy(MissionPanels[currentIndex]);
+                MissionPanels[currentIndex] = null;
+
+                IncrementAnalytics(Constants.Analytics_MissionsExpired, 1);
+            }
+
+        }
+
+
+
+        if (wasForestDamaged)
+            ForestDamageSound.Play();
+    }
+
+
+    void IncrementAnalytics(string key, int value)
+    {
+        var oldValue = PlayerPrefs.GetInt(key);
+        PlayerPrefs.SetInt(key, oldValue + value);
+        UpdateAnalyticsPanel();
+    }
+
+    void CheckLoseConditions()
+    {
+        if (CurrentForestHp <= 0 || BearData.CurrentHp <= 0)
+        {
+            gameObject.GetComponent<NavigationScript>().GoToDefeat();
+        }
     }
 
     void GenerateEvents()
     {
-        var draftedEvet = EventGenerator.GetMission(BearData);
-        if (draftedEvet != null)
+        Debug.Log("GenerateEvents BEgin");
+        var draftedEvent = EventGenerator.GetMission(BearData);
+        if (draftedEvent != null)
         {
+            Debug.Log($"Drafted {draftedEvent.Name} #{draftedEvent.Id}");
+            //czy sa wolne spawn pointy
+            if (AvailableMissions.Values.Any(v => v == null))
+            {
+                int emptyIndex = -1;
+                foreach (var kvp in AvailableMissions)
+                {
+                    if (kvp.Value == null)
+                        ++emptyIndex;
+                }
+                AvailableMissions[emptyIndex] = draftedEvent;
+
+                //create panel
+                var spawner = SpawnPoints[emptyIndex];
+                var newMissionPanel = Instantiate(MissionPanelPrefab, spawner);
+                MissionPanels[emptyIndex] = newMissionPanel;
+                var missionPanelScript = newMissionPanel.GetComponent<MissionPanelScript>();
+                missionPanelScript.UpdateText(draftedEvent, BearData);
+
+                //Instantiate(MissionPanelPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            }
+            else
+            {
+                //usun losowy najblizszy wygasnieciu i zastosuj jego obrazenia
+            }
             //display event on map
         }
     }
@@ -201,7 +354,7 @@ public class MapLogic : MonoBehaviour
 
     string ForestConditionToString()
     {
-        var result = (float)CurrentFoestHp / MaxForestHp;
+        var result = (float)CurrentForestHp / MaxForestHp;
         if (result > 0.9f)
             return "Good";
         else if (result > 0.6f)
@@ -235,5 +388,23 @@ public class MapLogic : MonoBehaviour
     public void SaveHeroData()
     {
         ///PlayerPrefs.
+    }
+
+    public void ToggleAnalytics()
+    {
+        if (analyticsVisible)
+            AnalyticsPanel.SetActive(false);
+        else
+        {
+            AnalyticsPanel.SetActive(true);
+            UpdateAnalyticsPanel();
+        }
+
+        analyticsVisible = !analyticsVisible;
+    }
+
+    void UpdateAnalyticsPanel()
+    {
+        AnalyticsPanel.GetComponent<AnalyticsPanelScript>().UpdateData();
     }
 }

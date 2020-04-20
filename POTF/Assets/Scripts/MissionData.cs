@@ -15,11 +15,16 @@ public class MissionData
     public int Duration;
     public int ForestDamage;
     public int Exp;
+    public int RegenPlayer;
+    public int RegenForest;
+    public MissionTypes MissionType;
+
 
     public List<HostileData> Hostiles;
 
-    public MissionData(MissionDraftConfiguration missionConfiguration, string name, string desc, int id, List<HostileData> hostiles)
+    public MissionData(MissionTypes missionType, MissionDraftConfiguration missionConfiguration, string name, string desc, int id, List<HostileData> hostiles)
     {
+        this.MissionType = missionType;
         this.Name = name;
         this.Desc = desc;
         this.Id = id;
@@ -27,5 +32,7 @@ public class MissionData
         this.ForestDamage = missionConfiguration.ForestDamage;
         this.Exp = missionConfiguration.BaseExp;
         this.Hostiles = hostiles;
+        this.RegenPlayer = missionConfiguration.RegenPlayer;
+        this.RegenForest = missionConfiguration.RegenForest;
     }
 }

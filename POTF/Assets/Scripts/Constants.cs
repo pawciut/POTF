@@ -5,6 +5,7 @@
     public const string Mission1SceneName = "MissionAScene";
     public const string MenuSceneName = "MenuScene";
     public const string OptionSceneName = "optionsScene";
+    public const string DefeatSceneName = "DefeatScene";
     public const string CreditsSceneName = "CreditsScene";
     public const string HowToPlaySceneName = "HowToPlayScene";
 
@@ -35,11 +36,20 @@
     public const string Mission_Deterrence_Name = "Deterrence";
     public const string Mission_Emergency_Name = "Emergency";
 
-    
+
 
     //Mission_Maintenance Desc
     public const string Mission_Maintenance_Desc_01 = "Animals reported that someone blocked the stream with a rock. You need to remove this rock in order to restore the balance of the forest.";
     public const string Mission_Maintenance_Desc_02 = "Someone broke the feeding rack. You need to go and fix it.";
 
+
+    //Analytics
+    public const string Analytics_TotalScore = "Analytics_TotalScore";
+    public const string Analytics_TotalDays = "Analytics_TotalDays";
+    public const string Analytics_ReachedMaxLevel = "Analytics_ReachedMaxLevel";
+    public const string Analytics_MissionsCompleted = "Analytics_MissionsCompleted";
+    public const string Analytics_MissionsFailed = "Analytics_MissionsFailed";
+    public const string Analytics_MissionsExpired = "Analytics_MissionsExpired";
+    public const string Analytics_EnemiesSlained = "Analytics_EnemiesSlained";
 
 }

@@ -69,18 +69,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70263795"
-     inkscape:cx="2046.7751"
-     inkscape:cy="-610.16849"
+     inkscape:zoom="0.99368012"
+     inkscape:cx="1970.8856"
+     inkscape:cy="331.63749"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer4"
+     inkscape:current-layer="g1549"
      showgrid="true"
      units="px"
      showborder="false"
      inkscape:object-nodes="false"
      inkscape:snap-bbox="true"
      inkscape:bbox-nodes="true"
-     inkscape:snap-global="false"
+     inkscape:snap-global="true"
      inkscape:window-width="1680"
      inkscape:window-height="987"
      inkscape:window-x="1912"
@@ -2238,6 +2238,244 @@ EARBEAQ1Tf8Da4EW6SsbCHkAAAAASUVORK5CYII=
       </g>
     </g>
   </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer10"
+     inkscape:label="BoarderDays">
+    <g
+       id="g1476"
+       transform="translate(3.3073033,3.3072933)">
+      <g
+         id="g1482"
+         transform="matrix(1.6688582,0,0,1.6688582,-226.51562,-62.288644)"
+         inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96">
+        <rect
+           style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:#41521f;stroke-width:3.96875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect1470"
+           width="16.324558"
+           height="16.324566"
+           x="338.66666"
+           y="93.133331"
+           ry="1.0020683" />
+        <rect
+           ry="1.0020683"
+           y="93.133331"
+           x="338.66666"
+           height="16.324566"
+           width="16.324558"
+           id="rect1441"
+           style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="opacity:1;fill:#baad56;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 354.54071,93.296896 c 0.10461,0.158329 0.16586,0.348154 0.16586,0.552937 v 14.320587 c 0,0.55515 -0.44685,1.00201 -1.002,1.00201 H 339.384 c -0.20479,0 -0.3946,-0.0613 -0.55293,-0.16588 0.1791,0.27035 0.48514,0.44855 0.83508,0.44855 h 14.32057 c 0.55515,0 1.002,-0.44738 1.002,-1.00252 V 94.132503 c 0,-0.349946 -0.17769,-0.656511 -0.44801,-0.835607 z"
+           id="rect1465"
+           inkscape:connector-curvature="0" />
+        <path
+           style="opacity:1;fill:#8c8451;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 339.66868,93.13334 c -0.55515,0 -1.00201,0.446861 -1.00201,1.002007 v 14.320573 c 0,0.48682 0.34356,0.8904 0.80254,0.98237 -0.0895,-0.15007 -0.14367,-0.32351 -0.14367,-0.5116 V 94.60612 c 0,-0.555146 0.44685,-1.002006 1.002,-1.002006 h 14.32057 c 0.0682,0 0.1347,0.0068 0.19897,0.01963 -0.17454,-0.292828 -0.4908,-0.490411 -0.85783,-0.490411 z"
+           id="rect1459"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+    <g
+       transform="translate(3.3073017,54.107294)"
+       id="g1497">
+      <g
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground.png"
+         transform="matrix(1.6688582,0,0,1.6688582,-226.51562,-62.288644)"
+         id="g1495">
+        <rect
+           ry="1.0020683"
+           y="93.133331"
+           x="338.66666"
+           height="16.324566"
+           width="16.324558"
+           id="rect1487"
+           style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:#f5c396;stroke-width:3.96875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground_Highlighted.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <rect
+           style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect1489"
+           width="16.324558"
+           height="16.324566"
+           x="338.66666"
+           y="93.133331"
+           ry="1.0020683"
+           inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground_Highlighted.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path1491"
+           d="m 354.54071,93.296896 c 0.10461,0.158329 0.16586,0.348154 0.16586,0.552937 v 14.320587 c 0,0.55515 -0.44685,1.00201 -1.002,1.00201 H 339.384 c -0.20479,0 -0.3946,-0.0613 -0.55293,-0.16588 0.1791,0.27035 0.48514,0.44855 0.83508,0.44855 h 14.32057 c 0.55515,0 1.002,-0.44738 1.002,-1.00252 V 94.132503 c 0,-0.349946 -0.17769,-0.656511 -0.44801,-0.835607 z"
+           style="opacity:1;fill:#baad56;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground_Highlighted.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path1493"
+           d="m 339.66868,93.13334 c -0.55515,0 -1.00201,0.446861 -1.00201,1.002007 v 14.320573 c 0,0.48682 0.34356,0.8904 0.80254,0.98237 -0.0895,-0.15007 -0.14367,-0.32351 -0.14367,-0.5116 V 94.60612 c 0,-0.555146 0.44685,-1.002006 1.002,-1.002006 h 14.32057 c 0.0682,0 0.1347,0.0068 0.19897,0.01963 -0.17454,-0.292828 -0.4908,-0.490411 -0.85783,-0.490411 z"
+           style="opacity:1;fill:#8c8451;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground_Highlighted.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <g
+           id="g1511"
+           transform="translate(27.515444,-7.998722)">
+          <rect
+             ry="1.0020683"
+             y="121.42537"
+             x="341.59119"
+             height="16.324566"
+             width="16.324558"
+             id="rect1499"
+             style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:#ada095;stroke-width:3.96875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground_Disabled.png"
+             inkscape:export-xdpi="96"
+             inkscape:export-ydpi="96" />
+          <rect
+             style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="rect1501"
+             width="16.324558"
+             height="16.324566"
+             x="341.59119"
+             y="121.42537"
+             ry="1.0020683"
+             inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground_Disabled.png"
+             inkscape:export-xdpi="96"
+             inkscape:export-ydpi="96" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path1503"
+             d="m 357.46525,121.58893 c 0.10461,0.15833 0.16586,0.34815 0.16586,0.55294 v 14.32058 c 0,0.55515 -0.44685,1.00201 -1.002,1.00201 h -14.32057 c -0.20479,0 -0.3946,-0.0613 -0.55293,-0.16588 0.1791,0.27035 0.48514,0.44855 0.83508,0.44855 h 14.32057 c 0.55515,0 1.002,-0.44738 1.002,-1.00252 v -14.32007 c 0,-0.34995 -0.17769,-0.65651 -0.44801,-0.83561 z"
+             style="opacity:1;fill:#baad56;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground_Disabled.png"
+             inkscape:export-xdpi="96"
+             inkscape:export-ydpi="96" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path1505"
+             d="m 342.59322,121.42537 c -0.55515,0 -1.00201,0.44687 -1.00201,1.00201 v 14.32057 c 0,0.48682 0.34356,0.8904 0.80254,0.98237 -0.0895,-0.15007 -0.14367,-0.32351 -0.14367,-0.5116 v -14.32057 c 0,-0.55514 0.44685,-1.002 1.002,-1.002 h 14.32057 c 0.0682,0 0.1347,0.007 0.19897,0.0196 -0.17454,-0.29283 -0.4908,-0.49041 -0.85783,-0.49041 z"
+             style="opacity:1;fill:#8c8451;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground_Disabled.png"
+             inkscape:export-xdpi="96"
+             inkscape:export-ydpi="96" />
+        </g>
+      </g>
+    </g>
+    <g
+       transform="translate(54.107302,3.3072937)"
+       id="g1523">
+      <g
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground.png"
+         transform="matrix(1.6688582,0,0,1.6688582,-226.51562,-62.288644)"
+         id="g1521">
+        <g
+           id="g1529"
+           transform="matrix(1.1746662,0,0,1.1746662,-60.579292,-17.69292)">
+          <rect
+             style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:#41521f;stroke-width:0.95124918;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="rect1513"
+             width="16.324558"
+             height="16.324566"
+             x="338.66666"
+             y="93.133331"
+             ry="1.0020683" />
+          <rect
+             ry="1.0020683"
+             y="93.133331"
+             x="338.66666"
+             height="16.324566"
+             width="16.324558"
+             id="rect1515"
+             style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="opacity:1;fill:#baad56;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 354.54071,93.296896 c 0.10461,0.158329 0.16586,0.348154 0.16586,0.552937 v 14.320587 c 0,0.55515 -0.44685,1.00201 -1.002,1.00201 H 339.384 c -0.20479,0 -0.3946,-0.0613 -0.55293,-0.16588 0.1791,0.27035 0.48514,0.44855 0.83508,0.44855 h 14.32057 c 0.55515,0 1.002,-0.44738 1.002,-1.00252 V 94.132503 c 0,-0.349946 -0.17769,-0.656511 -0.44801,-0.835607 z"
+             id="path1517"
+             inkscape:connector-curvature="0" />
+          <path
+             style="opacity:1;fill:#8c8451;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 339.66868,93.13334 c -0.55515,0 -1.00201,0.446861 -1.00201,1.002007 v 14.320573 c 0,0.48682 0.34356,0.8904 0.80254,0.98237 -0.0895,-0.15007 -0.14367,-0.32351 -0.14367,-0.5116 V 94.60612 c 0,-0.555146 0.44685,-1.002006 1.002,-1.002006 h 14.32057 c 0.0682,0 0.1347,0.0068 0.19897,0.01963 -0.17454,-0.292828 -0.4908,-0.490411 -0.85783,-0.490411 z"
+             id="path1519"
+             inkscape:connector-curvature="0" />
+        </g>
+        <g
+           transform="matrix(1.1746662,0,0,1.1746662,-30.139319,-17.69292)"
+           id="g1539">
+          <rect
+             ry="1.0020683"
+             y="93.133331"
+             x="338.66666"
+             height="16.324566"
+             width="16.324558"
+             id="rect1531"
+             style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:#f5c396;stroke-width:0.95124918;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <rect
+             style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="rect1533"
+             width="16.324558"
+             height="16.324566"
+             x="338.66666"
+             y="93.133331"
+             ry="1.0020683" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path1535"
+             d="m 354.54071,93.296896 c 0.10461,0.158329 0.16586,0.348154 0.16586,0.552937 v 14.320587 c 0,0.55515 -0.44685,1.00201 -1.002,1.00201 H 339.384 c -0.20479,0 -0.3946,-0.0613 -0.55293,-0.16588 0.1791,0.27035 0.48514,0.44855 0.83508,0.44855 h 14.32057 c 0.55515,0 1.002,-0.44738 1.002,-1.00252 V 94.132503 c 0,-0.349946 -0.17769,-0.656511 -0.44801,-0.835607 z"
+             style="opacity:1;fill:#baad56;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path1537"
+             d="m 339.66868,93.13334 c -0.55515,0 -1.00201,0.446861 -1.00201,1.002007 v 14.320573 c 0,0.48682 0.34356,0.8904 0.80254,0.98237 -0.0895,-0.15007 -0.14367,-0.32351 -0.14367,-0.5116 V 94.60612 c 0,-0.555146 0.44685,-1.002006 1.002,-1.002006 h 14.32057 c 0.0682,0 0.1347,0.0068 0.19897,0.01963 -0.17454,-0.292828 -0.4908,-0.490411 -0.85783,-0.490411 z"
+             style="opacity:1;fill:#8c8451;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </g>
+        <g
+           id="g1549"
+           transform="matrix(1.1746662,0,0,1.1746662,-19.992661,12.747054)">
+          <rect
+             style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:#ada095;stroke-width:0.95124918;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="rect1541"
+             width="16.324558"
+             height="16.324566"
+             x="338.66666"
+             y="93.133331"
+             ry="1.0020683" />
+          <rect
+             ry="1.0020683"
+             y="93.133331"
+             x="338.66666"
+             height="16.324566"
+             width="16.324558"
+             id="rect1543"
+             style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="opacity:1;fill:#baad56;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 354.54071,93.296896 c 0.10461,0.158329 0.16586,0.348154 0.16586,0.552937 v 14.320587 c 0,0.55515 -0.44685,1.00201 -1.002,1.00201 H 339.384 c -0.20479,0 -0.3946,-0.0613 -0.55293,-0.16588 0.1791,0.27035 0.48514,0.44855 0.83508,0.44855 h 14.32057 c 0.55515,0 1.002,-0.44738 1.002,-1.00252 V 94.132503 c 0,-0.349946 -0.17769,-0.656511 -0.44801,-0.835607 z"
+             id="path1545"
+             inkscape:connector-curvature="0" />
+          <path
+             style="opacity:1;fill:#8c8451;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 339.66868,93.13334 c -0.55515,0 -1.00201,0.446861 -1.00201,1.002007 v 14.320573 c 0,0.48682 0.34356,0.8904 0.80254,0.98237 -0.0895,-0.15007 -0.14367,-0.32351 -0.14367,-0.5116 V 94.60612 c 0,-0.555146 0.44685,-1.002006 1.002,-1.002006 h 14.32057 c 0.0682,0 0.1347,0.0068 0.19897,0.01963 -0.17454,-0.292828 -0.4908,-0.490411 -0.85783,-0.490411 z"
+             id="path1547"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer11"
+     inkscape:label="MissionPanel" />
   <g
      inkscape:label="PaletteLayer"
      inkscape:groupmode="layer"

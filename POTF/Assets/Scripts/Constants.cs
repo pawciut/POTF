@@ -8,5 +8,9 @@
     public const string CreditsSceneName = "CreditsScene";
     public const string HowToPlaySceneName = "HowToPlayScene";
 
+    //formats
+    public const string StatusPanel_ForestConditionFormat = "Forest condition:\r\n {0}";
+    public const string StatusPanel_DateFormat = "Day {0}, Week {1}, Month {2}";
+
 
 }

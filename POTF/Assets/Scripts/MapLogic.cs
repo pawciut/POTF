@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,7 @@ public class MapLogic : MonoBehaviour
 {
     public Button StartGameButton;
     public Button NextTurnButton;
+    
 
     //Player Data
     CharacterData BearData;
@@ -86,6 +88,9 @@ public class MapLogic : MonoBehaviour
         { 4, null },
     };
     GameObject[] MissionPanels = new GameObject[MaxMissions];
+    public MissionResultScript MissionResultPanel;
+    public AudioSource MissionSuccessSound;
+    public AudioSource MissionFailedSound;
 
 
     // Start is called before the first frame update
@@ -144,6 +149,223 @@ public class MapLogic : MonoBehaviour
 
     }
 
+    public void AutoresolveEvent(int id)
+    {
+        Debug.Log("Autoresolve");
+        int eventIndex = -1;
+
+        foreach (var kvp in AvailableMissions)
+        {
+            ++eventIndex;
+            if (kvp.Value != null && kvp.Value.Id == id)
+            {
+                StringBuilder resolveLog = new StringBuilder();
+                //rozpatrujemy
+
+                bool isSuccess = true;
+
+                //najpierw czy sa wrogowie
+                if (kvp.Value.Hostiles.Any())
+                {
+                    PerformCombat(kvp.Value.Hostiles);
+
+                    //check result
+                    if (BearData.CurrentHp <= 0)
+                    {
+                        isSuccess = false;
+                    }
+
+                    //UpdateMissionResults
+
+                    foreach (var hostile in kvp.Value.Hostiles)
+                    {
+                        if (hostile.CurrentHp <= 0)
+                        {
+                            IncrementAnalytics(Constants.Analytics_EnemiesSlained, 1);
+                            AddExp(hostile.BaseExp);
+                            resolveLog.AppendLine($"Enemy {hostile.Name} slained");
+                        }
+                        else
+                        {
+                            resolveLog.AppendLine($"Enemy {hostile.Name} alive");
+                        }
+                    }
+
+                    if(!kvp.Value.Hostiles.Any())
+                        resolveLog.AppendLine($"Hostiles: 0");
+                }
+
+                if (isSuccess)
+                {
+                    AddExp(kvp.Value.Exp);
+                    IncrementAnalytics(Constants.Analytics_MissionsCompleted, 1);
+
+                    if (ApplyBearRegen(kvp.Value))
+                        resolveLog.AppendLine($"{BearData.Name} regenerates");
+                    if (ApplyForestRegen(kvp.Value))
+                        resolveLog.AppendLine($"Forest conditiona improved");
+
+                    if(!String.IsNullOrEmpty(kvp.Value.MissionSuccessInfo))
+                        resolveLog.AppendLine(kvp.Value.MissionSuccessInfo);
+                }
+                else
+                {
+                    IncrementAnalytics(Constants.Analytics_MissionsFailed, 1);
+                    ApplyForestDamage(kvp.Value);
+                }
+
+
+                //wysietlanie wyniku i usuwanie misji
+                UpdateForestAndDateAndEffects();
+                UpdatePortraitAndLevel();
+                ShowMissionResult(isSuccess, kvp.Value, resolveLog.ToString());
+                CleanUpAfterMission(kvp.Value, eventIndex);
+                NextTurnButton.interactable = false;
+
+                //koniec rozpatrywanej misji
+                break;
+            }
+        }
+    }
+
+    void CleanUpAfterMission(MissionData mission, int index)
+    {
+        Destroy(MissionPanels[index]);
+        MissionPanels[index] = null;
+        AvailableMissions[index] = null;
+    }
+
+    void ShowMissionResult(bool isSuccess, MissionData missionData, string log)
+    {
+        if (isSuccess)
+        {
+            MissionResultPanel.UpdateSuccessData(missionData, log);
+            MissionSuccessSound.Play();
+        }
+        else
+        {
+            MissionResultPanel.UpdateFailedData(missionData, log);
+            MissionFailedSound.Play();
+        }
+        MissionResultPanel.gameObject.SetActive(true);
+    }
+
+    void AddExp(int exp)
+    {
+        var expCap = GetExpCapForThisLevel(BearData.CurrentLevel);
+        BearData.CurrentExp += exp;
+
+        if (BearData.CurrentExp >= expCap)
+        {
+            //level up
+            BearData.CurrentLevel++;
+        }
+        UpdatePortraitAndLevel();
+    }
+
+    void PerformCombat(List<HostileData> hostiles)
+    {
+        //dopuki niedziedz zyje i sa przeciwnicy
+        while (BearData.CurrentHp > 0 && hostiles.Any(h => h.CurrentHp > 0))
+        {
+
+            var livingHostiles = hostiles.Where(h => h.CurrentHp > 0);
+            bool multipleEnemies = livingHostiles.Count() > 1;
+            //round
+            BearData.RefreshAP();
+
+            //dopuki ma ruchy a przeciwnicy zyja to bij
+            while (BearData.CurrentActionPoints > 0 && hostiles.Any(h => h.CurrentHp > 0))
+            {
+                //czy oplaca sie cleave
+                if (multipleEnemies && BearData.CurrentActionPoints >= GetBearCleave().APCost)
+                {
+                    PerformCleaveAttack(BearData, hostiles.Where(h => h.CurrentHp > 0), GetBearCleave());
+                }
+                else if (BearData.CurrentActionPoints >= GetBearSingleAttack().APCost)
+                {
+                    //single attack
+                    PerformSingleAttack(BearData, hostiles.FirstOrDefault(h => h.CurrentHp > 0), GetBearSingleAttack());
+                }
+            }
+
+            //ruch przeciwnikow
+            foreach (var aliveHostile in hostiles.Where(h => h.CurrentHp > 0))
+            {
+                aliveHostile.RefreshAP();
+                //dopoki ma ruchy i niedzwiedz zyje
+                while (aliveHostile.CurrentActionPoints > 0 && BearData.CurrentHp > 0)
+                {
+                    //najpierw ranged
+                    var rangedAttack = (Action_Attack)aliveHostile.Actions.FirstOrDefault(a => a is Action_Attack && (a as Action_Attack).AttackType == AttackTypes.Ranged);
+                    var meleeAttack = (Action_Attack)aliveHostile.Actions.FirstOrDefault(a => a is Action_Attack && (a as Action_Attack).AttackType == AttackTypes.Melee);
+                    if (rangedAttack != null && aliveHostile.CurrentActionPoints >= rangedAttack.APCost)
+                    {
+                        PerformSingleAttack(aliveHostile, BearData, rangedAttack);
+                    }
+                    else if (meleeAttack != null && aliveHostile.CurrentActionPoints >= meleeAttack.APCost)
+                    {
+                        //melee
+                        PerformSingleAttack(aliveHostile, BearData, meleeAttack);
+                    }
+                }
+            }
+            //next round
+        }
+    }
+
+
+    /// <summary>
+    /// removes AP and checks if hit or not, does not apply effect
+    /// </summary>
+    /// <param name="source"></param>
+    /// <param name="action"></param>
+    /// <returns></returns>
+    bool TryHit(CharacterData source, ActionData action)
+    {
+        source.CurrentActionPoints -= action.APCost;
+
+        var hitRoll = UnityEngine.Random.Range(0f, 1f);
+        var hitChance = action.ChanceOfSuccess(source, null);
+        if (hitRoll > hitChance)
+        {
+            Debug.Log($"{source.Name} failed {action.ToString()}");
+            //missed
+            return false;
+        }
+        return true;
+    }
+
+    void PerformSingleAttack(CharacterData source, CharacterData target, Action_Attack attack)
+    {
+        if (TryHit(source, attack))
+        {
+            if (target.ApplyDamage(attack))
+                Debug.Log($"{source.Name} apply {attack.ToString()} to {target.Name}");
+        }
+    }
+    void PerformCleaveAttack(CharacterData source, IEnumerable<CharacterData> target, Action_Attack attack)
+    {
+        if (TryHit(source, attack))
+        {
+            //hit not missed
+            foreach (var tar in target)
+            {
+                if (tar.ApplyDamage(attack))
+                    Debug.Log($"{source.Name} apply {attack.ToString()} to {tar.Name}");
+            }
+        }
+    }
+
+    Action_Attack GetBearCleave()
+    {
+        return (Action_Attack)BearData.Actions.FirstOrDefault(a => a is Action_Attack && (a as Action_Attack).AttackType == AttackTypes.Cleave);
+    }
+    Action_Attack GetBearSingleAttack()
+    {
+        return (Action_Attack)BearData.Actions.FirstOrDefault(a => a is Action_Attack && (a as Action_Attack).AttackType == AttackTypes.Melee);
+    }
+
     int CalculateScore()
     {
         int total = 0;
@@ -186,11 +408,8 @@ public class MapLogic : MonoBehaviour
             else if (kvp.Value != null && kvp.Value.Duration == 1)
             {
                 //apply effect
-                if (kvp.Value.ForestDamage > 0)
-                {
-                    CurrentForestHp -= kvp.Value.ForestDamage;
+                if (ApplyForestDamage(kvp.Value))
                     wasForestDamaged = true;
-                }
 
 
                 //remove panel
@@ -207,6 +426,41 @@ public class MapLogic : MonoBehaviour
         if (wasForestDamaged)
             ForestDamageSound.Play();
     }
+    bool ApplyBearRegen(MissionData missionData)
+    {
+        if (BearData.CurrentHp < BearData.MaxHp)
+        {
+            if (BearData.CurrentHp + missionData.RegenPlayer > BearData.MaxHp)
+                BearData.CurrentHp = BearData.MaxHp;
+            else
+                BearData.CurrentHp += missionData.RegenPlayer;
+            return true;
+        }
+        return false;
+    }
+
+    bool ApplyForestRegen(MissionData missionData)
+    {
+        if (CurrentForestHp < MaxForestHp)
+        {
+            if (CurrentForestHp + missionData.RegenForest > MaxForestHp)
+                CurrentForestHp = MaxForestHp;
+            else
+                CurrentForestHp += missionData.RegenForest;
+            return true;
+        }
+        return false;
+    }
+
+    bool ApplyForestDamage(MissionData missionData)
+    {
+        if (missionData.ForestDamage > 0)
+        {
+            CurrentForestHp -= missionData.ForestDamage;
+            return true;
+        }
+        return false;
+    }
 
 
     void IncrementAnalytics(string key, int value)
@@ -216,12 +470,13 @@ public class MapLogic : MonoBehaviour
         UpdateAnalyticsPanel();
     }
 
-    void CheckLoseConditions()
+    public void CheckLoseConditions()
     {
         if (CurrentForestHp <= 0 || BearData.CurrentHp <= 0)
         {
             gameObject.GetComponent<NavigationScript>().GoToDefeat();
         }
+        NextTurnButton.interactable = true;
     }
 
     void GenerateEvents()
@@ -249,7 +504,9 @@ public class MapLogic : MonoBehaviour
                 var missionPanelScript = newMissionPanel.GetComponent<MissionPanelScript>();
                 missionPanelScript.UpdateText(draftedEvent, BearData);
 
-                //Instantiate(MissionPanelPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+                //attach autoresolve handler
+                missionPanelScript.AutoButton.onClick.AddListener(delegate { AutoresolveEvent(draftedEvent.Id); });
+
             }
             else
             {
@@ -270,6 +527,11 @@ public class MapLogic : MonoBehaviour
         UpdateCalendar();
         UpdateForestAndDateAndEffects();
     }
+    public void DEBUG_AddExp()
+    {
+        AddExp(50);
+        UpdatePortraitAndLevel();
+    }
 
     void UpdateUI()
     {
@@ -279,7 +541,18 @@ public class MapLogic : MonoBehaviour
 
     public void DraftBeforeStart()
     {
-        BearData = new CharacterData();
+        BearData = new CharacterData()
+        {
+            Name = "Bear",
+            Actions = new List<ActionData>
+            {
+                new Action_Attack(),
+                new Action_Attack(1,2, AttackTypes.Cleave),
+                new Action_Dodge(),
+                new Action_Fix(),
+            }
+        };
+
         UpdateUI();
 
     }

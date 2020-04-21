@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 /// </summary>
 public class HostileDraftConfiguration : CharacterData
 {
-    public string Name = "Hostile";
     public int BaseExp = 5;
     public int MinPlayerLevel = 1;
     protected HostileDraftConfiguration()
     {
-
+        Name = "Hostile";
     }
     public HostileDraftConfiguration(string name, int baseExp, int power, int agility, int intelect, int maxHp, int minPlayerLevel, List<ActionData> actions)
+        : base()
     {
         this.Name = name;
         this.BaseExp = baseExp;

@@ -34,6 +34,7 @@ public class Action_Attack : ActionData
 
     public Action_Attack()
     {
+        APCost = 1;
     }
     public Action_Attack(int damage = 1, int apCost = 1, AttackTypes attackType = AttackTypes.Melee)
     {
@@ -53,6 +54,11 @@ public class Action_Attack : ActionData
     {
         base.ChanceOfSuccess(character, reactionForThisAction);
         return BaseSuccessChance + character.Agility * Constants.Mod_HitChancePerAgility + character.Intelect * Constants.Mod_HitChancePerIntelect;
+    }
+
+    public override string ToString()
+    {
+        return $"Attack {GetDamage()} {AttackType}";
     }
 
 }
@@ -96,6 +102,13 @@ public class Action_Fix : ActionData
             //+ character.Agility * Constants.Mod_FixChancePerAgility 
             + character.Intelect * Constants.Mod_FixChancePerIntelect;
     }
+}
+
+
+public class Action_Scout : ActionData
+{
+    public override float BaseSuccessChance => 1f;
+    public override ActionTypes ActionType => ActionTypes.Scout;
 }
 
 

@@ -13,4 +13,5 @@ public enum ActionTypes
     Roar,
     Jump,
     Gather,
+    Scout,
 }

@@ -18,6 +18,7 @@ public class MissionData
     public int RegenPlayer;
     public int RegenForest;
     public MissionTypes MissionType;
+    public string MissionSuccessInfo;
 
 
     public List<HostileData> Hostiles;
@@ -34,5 +35,17 @@ public class MissionData
         this.Hostiles = hostiles;
         this.RegenPlayer = missionConfiguration.RegenPlayer;
         this.RegenForest = missionConfiguration.RegenForest;
+
+        string successText = String.Empty;
+        switch (missionType)
+        {
+            case MissionTypes.Maintenance:
+                successText = Constants.Mission_Maintenance_Success;
+                break;
+            default:
+                break;
+        }
+        MissionSuccessInfo = successText;
+
     }
 }

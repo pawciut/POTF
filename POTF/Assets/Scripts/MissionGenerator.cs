@@ -101,11 +101,13 @@ public partial class MissionGenerator
     {
         List<HostileData> hostiles = new List<HostileData>();
 
-        int hostilesCount = UnityEngine.Random.Range(0, maxHostiles);
+        int hostilesCount = UnityEngine.Random.Range(0, maxHostiles+1);
         var forThisLevel = Config_Hostile_Pool.Where(h => h.MinPlayerLevel <= playerLevel).ToList();
 
         for (int i = 0; i < hostilesCount; ++i)
         {
+            //dog elite
+            //int hostileDraftIndex = 0;
             int hostileDraftIndex = UnityEngine.Random.Range(0, forThisLevel.Count);
             var draftedHostile = forThisLevel[hostileDraftIndex];
             var hostile = new HostileData(draftedHostile);

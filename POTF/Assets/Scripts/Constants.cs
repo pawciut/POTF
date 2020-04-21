@@ -36,6 +36,7 @@
     public const string Mission_Deterrence_Name = "Deterrence";
     public const string Mission_Emergency_Name = "Emergency";
 
+    public const string Mission_Maintenance_Success = "Bear fixed the thing";
 
 
     //Mission_Maintenance Desc

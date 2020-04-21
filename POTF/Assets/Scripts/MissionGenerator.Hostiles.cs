@@ -12,6 +12,10 @@ public partial class MissionGenerator
     /// </summary>
     public List<HostileDraftConfiguration> Config_Hostile_Pool = new List<HostileDraftConfiguration>
     {
+        //dog elite
+        //new HostileDraftConfiguration("Dog Elite",5,1,1,0,20,1, new List<ActionData>{
+        //    new Action_Attack()
+        //}),
         new HostileDraftConfiguration("Dog (Melee)",5,1,1,0,1,1, new List<ActionData>{
             new Action_Attack()
         }),

@@ -35,6 +35,10 @@ public class NavigationScript : MonoBehaviour
     {
         SceneManager.LoadScene(Constants.OptionSceneName);
     }
+    public void GoToDefeat()
+    {
+        SceneManager.LoadScene(Constants.DefeatSceneName);
+    }
 
 
     public void Exit()

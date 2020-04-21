@@ -30,15 +30,17 @@ public partial class MissionGenerator
 
     public MissionData GetMission(CharacterData playerData)
     {
-        var noEventValue = UnityEngine.Random.Range(0, 101);
+        Debug.Log("GetMission");
+        var noEventValue = UnityEngine.Random.Range(0f, 1f);
+        Debug.Log($"GetMission noEventChance:{noEventValue}");
         if (Event_00_NoEvent_Chance.x >= noEventValue)
         {
             //TODO no event today
         }
         else
         {
-            var eventValue = UnityEngine.Random.Range(0, 101);
-
+            var eventValue = UnityEngine.Random.Range(0f, 1f);
+            Debug.Log($"GetMission eventValue:{eventValue}");
             MissionTypes draftedEventType = MissionTypes.None;
             if (InRange(Event_01_Den_Chance, eventValue))
                 draftedEventType = MissionTypes.Den;
@@ -57,7 +59,8 @@ public partial class MissionGenerator
             if (InRange(Event_08_Emergency_Chance, eventValue))
                 draftedEventType = MissionTypes.Emergency;
 
-            var draftedMission = DraftMission(draftedEventType, playerData);
+            //var draftedMission = DraftMission(draftedEventType, playerData);
+            var draftedMission = DraftMission(MissionTypes.Maintenance, playerData);
             return draftedMission;
         }
         return null;
@@ -81,10 +84,10 @@ public partial class MissionGenerator
                     var missionDescription = Config_Maintenance_Desc_Pool[draftedMissionDesc];
 
                     //Draft Hostiles
-                    var draftedHostiles = DraftHostiles(missionDraft.MaxHostiles,player.CurrentLevel);
+                    var draftedHostiles = DraftHostiles(missionDraft.MaxHostiles, player.CurrentLevel);
 
                     //Finalize mission creation
-                    missionData = new MissionData(missionDraft, Constants.Mission_Maintenance_Name, missionDescription, ++NextMissionId, draftedHostiles);
+                    missionData = new MissionData(missionType, missionDraft, Constants.Mission_Maintenance_Name, missionDescription, ++NextMissionId, draftedHostiles);
                 }
                 break;
             default:
@@ -98,11 +101,13 @@ public partial class MissionGenerator
     {
         List<HostileData> hostiles = new List<HostileData>();
 
-        int hostilesCount = UnityEngine.Random.Range(0, maxHostiles);
+        int hostilesCount = UnityEngine.Random.Range(0, maxHostiles+1);
         var forThisLevel = Config_Hostile_Pool.Where(h => h.MinPlayerLevel <= playerLevel).ToList();
 
-        for (int i=0;i<hostilesCount;++i)
+        for (int i = 0; i < hostilesCount; ++i)
         {
+            //dog elite
+            //int hostileDraftIndex = 0;
             int hostileDraftIndex = UnityEngine.Random.Range(0, forThisLevel.Count);
             var draftedHostile = forThisLevel[hostileDraftIndex];
             var hostile = new HostileData(draftedHostile);

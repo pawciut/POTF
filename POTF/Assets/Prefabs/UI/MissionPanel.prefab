@@ -1,5 +1,83 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4331879059309630780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3962846064543417077}
+  - component: {fileID: 4254968611115331136}
+  - component: {fileID: 3680116416760325919}
+  m_Layer: 0
+  m_Name: MissionDescText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3962846064543417077
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331879059309630780}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7500102876304460521}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 5, y: -68}
+  m_SizeDelta: {x: 188.6, y: 94.6}
+  m_Pivot: {x: 0, y: 1}
+--- !u!222 &4254968611115331136
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331879059309630780}
+  m_CullTransparentMesh: 0
+--- !u!114 &3680116416760325919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331879059309630780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: b2e78f8ee62c0d54184888f409fcc285, type: 3}
+    m_FontSize: 10
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Animals reported that someone blocked the stream with a rock. You need
+    to remove this rock in order to restore the balance of the forest.
 --- !u!1 &7500102875789521637
 GameObject:
   m_ObjectHideFlags: 0
@@ -35,7 +113,7 @@ RectTransform:
   - {fileID: 7171744433402500268}
   - {fileID: 7500102876876297576}
   m_Father: {fileID: 7500102876304460521}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -223,6 +301,7 @@ RectTransform:
   - {fileID: 7500102876407810477}
   - {fileID: 7500102877006928652}
   - {fileID: 7500102876733030376}
+  - {fileID: 3962846064543417077}
   - {fileID: 7500102876953541223}
   - {fileID: 7500102875789521638}
   m_Father: {fileID: 0}
@@ -281,6 +360,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2505e5151dee664d99257ceef2dbee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AutoButton: {fileID: 7500102876953541216}
+  GoButton: {fileID: 7500102875789521639}
+  MissionNameText: {fileID: 7500102877147863662}
+  MissionIdText: {fileID: 7500102876733030377}
+  MissionDurationText: {fileID: 7500102877006928653}
+  MissionScoutInfoText: {fileID: 7500102876407810478}
+  MissionDescText: {fileID: 3680116416760325919}
 --- !u!1 &7500102876407810476
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +379,7 @@ GameObject:
   - component: {fileID: 7500102876407810479}
   - component: {fileID: 7500102876407810478}
   m_Layer: 0
-  m_Name: MissionDetailsText
+  m_Name: MissionScoutText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -315,8 +401,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 5, y: -68}
-  m_SizeDelta: {x: 188.6, y: 94.6}
+  m_AnchoredPosition: {x: 5, y: -26.6}
+  m_SizeDelta: {x: 188.6, y: 25.7}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &7500102876407810479
 CanvasRenderer:
@@ -339,19 +425,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b2e78f8ee62c0d54184888f409fcc285, type: 3}
-    m_FontSize: 12
+    m_FontSize: 8
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 1
+    m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -418,7 +504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -549,7 +635,7 @@ RectTransform:
   - {fileID: 7171744434681364872}
   - {fileID: 7500102876998959491}
   m_Father: {fileID: 7500102876304460521}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -814,8 +900,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 5, y: -35.9}
-  m_SizeDelta: {x: 188.6, y: 25.56}
+  m_AnchoredPosition: {x: 5, y: -47.2}
+  m_SizeDelta: {x: 188.6, y: 21.3}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &7500102877006928654
 CanvasRenderer:
@@ -838,7 +924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -892,7 +978,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 5, y: -5}
-  m_SizeDelta: {x: 145.3, y: 30}
+  m_SizeDelta: {x: 145.3, y: 21.2}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &7500102877147863663
 CanvasRenderer:
@@ -915,7 +1001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

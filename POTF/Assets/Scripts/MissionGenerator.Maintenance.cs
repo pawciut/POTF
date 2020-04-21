@@ -19,10 +19,12 @@ public partial class MissionGenerator
         {
             MaxHostiles = 0,
             ForestDamage = 1,
+            Duration =1 
         },new MissionDraftConfiguration()
         {
             MaxHostiles = 0,
             ForestDamage = 1,
+            Duration =1
         },new MissionDraftConfiguration()
         {
             MaxHostiles = 0,
@@ -35,6 +37,7 @@ public partial class MissionGenerator
         {
             MaxHostiles = 0,
             ForestDamage = 3,
+            Duration =1
         },
         new MissionDraftConfiguration()
         {
@@ -58,11 +61,13 @@ public partial class MissionGenerator
         {
             MaxHostiles = 2,
             ForestDamage = 3,
+            Duration =1
         },
         new MissionDraftConfiguration()
         {
             MaxHostiles = 3,
             ForestDamage = 3,
+            Duration =1
         },
     };
 

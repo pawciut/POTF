@@ -42,7 +42,7 @@
     //Mission_Maintenance Desc
     public const string Mission_Maintenance_Desc_01 = "Animals reported that someone blocked the stream with a rock. You need to remove this rock in order to restore the balance of the forest.";
     public const string Mission_Maintenance_Desc_02 = "Someone broke the feeding rack. You need to go and fix it.";
-
+    public const string Mission_Den_Desc_01 = "There is some free time to go rest in your den";
 
     //Analytics
     public const string Analytics_TotalScore = "Analytics_TotalScore";

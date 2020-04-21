@@ -49,18 +49,18 @@ public partial class MissionGenerator
             if (InRange(Event_03_Assault_Chance, eventValue))
                 draftedEventType = MissionTypes.Assault;
             if (InRange(Event_04_Escort_Chance, eventValue))
-                draftedEventType = MissionTypes.Escort;
+                draftedEventType = MissionTypes.Maintenance;//MissionTypes.Escort;
             if (InRange(Event_05_Supply_Chance, eventValue))
                 draftedEventType = MissionTypes.Supply;
             if (InRange(Event_06_Scout_Chance, eventValue))
-                draftedEventType = MissionTypes.Scout;
+                draftedEventType = MissionTypes.Maintenance;//MissionTypes.Scout;
             if (InRange(Event_07_Deterrence_Chance, eventValue))
-                draftedEventType = MissionTypes.Deterrence;
+                draftedEventType = MissionTypes.Maintenance;//MissionTypes.Deterrence;
             if (InRange(Event_08_Emergency_Chance, eventValue))
-                draftedEventType = MissionTypes.Emergency;
+                draftedEventType = MissionTypes.Maintenance;//MissionTypes.Emergency;
 
-            //var draftedMission = DraftMission(draftedEventType, playerData);
-            var draftedMission = DraftMission(MissionTypes.Maintenance, playerData);
+            var draftedMission = DraftMission(draftedEventType, playerData);
+            //var draftedMission = DraftMission(MissionTypes.Maintenance, playerData);
             return draftedMission;
         }
         return null;
@@ -75,26 +75,55 @@ public partial class MissionGenerator
             case MissionTypes.Maintenance:
                 if (Config_Maintenance_Pool.Any())
                 {
-                    //Pick mission draft
-                    int draftedMission = UnityEngine.Random.Range(0, Config_Maintenance_Pool.Count);
-                    var missionDraft = Config_Maintenance_Pool[draftedMission];
+                    missionData =GetM(missionType, Config_Maintenance_Pool, Config_Maintenance_Desc_Pool, player, Constants.Mission_Maintenance_Name);
+                    
+                    ////Pick mission draft
+                    //int draftedMission = UnityEngine.Random.Range(0, Config_Maintenance_Pool.Count);
+                    //var missionDraft = Config_Maintenance_Pool[draftedMission];
 
-                    //Pick mission desc
-                    int draftedMissionDesc = UnityEngine.Random.Range(0, Config_Maintenance_Desc_Pool.Count);
-                    var missionDescription = Config_Maintenance_Desc_Pool[draftedMissionDesc];
+                    ////Pick mission desc
+                    //int draftedMissionDesc = UnityEngine.Random.Range(0, Config_Maintenance_Desc_Pool.Count);
+                    //var missionDescription = Config_Maintenance_Desc_Pool[draftedMissionDesc];
 
-                    //Draft Hostiles
-                    var draftedHostiles = DraftHostiles(missionDraft.MaxHostiles, player.CurrentLevel);
+                    ////Draft Hostiles
+                    //var draftedHostiles = DraftHostiles(missionDraft.MaxHostiles, player.CurrentLevel);
 
-                    //Finalize mission creation
-                    missionData = new MissionData(missionType, missionDraft, Constants.Mission_Maintenance_Name, missionDescription, ++NextMissionId, draftedHostiles);
+                    ////Finalize mission creation
+                    //missionData = new MissionData(missionType, missionDraft, Constants.Mission_Maintenance_Name, missionDescription, ++NextMissionId, draftedHostiles);
                 }
+                break;
+            case MissionTypes.Den:
+                missionData =GetM(missionType, Config_Den_Pool, Config_Den_Desc_Pool, player, Constants.Mission_Den_Name);
+                break;
+
+            case MissionTypes.Assault:
+                missionData =GetM(missionType, Config_Assault_Pool, Config_Assault_Desc_Pool, player, Constants.Mission_Assault_Name);
+                break;
+            case MissionTypes.Supply:
+                missionData =GetM(missionType, Config_Supply_Pool, Config_Supply_Desc_Pool, player, Constants.Mission_Assault_Name);
                 break;
             default:
                 break;
         }
 
         return missionData;
+    }
+
+    MissionData GetM(MissionTypes missionType,List<MissionDraftConfiguration> draftPool, List<string> descPool, CharacterData player, string missionName)
+    {
+        //Pick mission draft
+        int draftedMission = UnityEngine.Random.Range(0, draftPool.Count);
+        var missionDraft = draftPool[draftedMission];
+
+        //Pick mission desc
+        int draftedMissionDesc = UnityEngine.Random.Range(0, descPool.Count);
+        var missionDescription = descPool[draftedMissionDesc];
+
+        //Draft Hostiles
+        var draftedHostiles = DraftHostiles(missionDraft.MaxHostiles, player.CurrentLevel);
+
+        //Finalize mission creation
+        return new MissionData(missionType, missionDraft, missionName, missionDescription, ++NextMissionId, draftedHostiles);
     }
 
     List<HostileData> DraftHostiles(int maxHostiles, int playerLevel)

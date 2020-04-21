@@ -1039,7 +1039,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1571276805}
-        m_MethodName: GoToHowToPlay
+        m_MethodName: GoToMission1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

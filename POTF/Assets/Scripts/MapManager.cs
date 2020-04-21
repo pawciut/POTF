@@ -14,72 +14,175 @@ public class MapManager : MonoBehaviour
     private LayerMask characterLayer;
 
     [SerializeField]
-    private Tilemap tilemap;
+    private Tilemap background;
 
     [SerializeField]
-    private Tilemap overlayTilemap;
+    private Tilemap obstacles;
+
+    [SerializeField]
+    private Tilemap overlay;
 
     [SerializeField]
     private Tile markTile;
 
-    [SerializeField]
-    private Tile walkableTile;
-
-    [SerializeField]
-    private Tile obstacleTile;
-
-    [SerializeField]
-    private List<PlayerCharacter> playerCharacters;
-
     private bool hidePath;
-    private PlayerCharacter selectedCharacter;
     private Vector3Int? currentTilePosition = null;
     private Pathfinding pathfinding;
+    private CharacterManager characterManager;
+    private TurnManager turnManager;
+
+    private PlayerCharacter selectedCharacter
+    {
+        get
+        {
+            return characterManager.activePlayerCharacter;
+        }
+        set
+        {
+            characterManager.activePlayerCharacter = value;
+        }
+    }
 
     private void Start()
     {
-        pathfinding = new Pathfinding(tilemap.size.x, tilemap.size.y, 1f, tilemap.localBounds.min, false);
+        characterManager = GetComponent<CharacterManager>();
+        turnManager = GetComponent<TurnManager>();
+        turnManager.TurnChanged += TurnManager_TurnChanged;
+        pathfinding = new Pathfinding(background.size.x, background.size.y, 1f, background.localBounds.min, false);
+        InitializeObstacles();
+    }
+
+    private void TurnManager_TurnChanged(TurnManager.TurnPhase phase)
+    {
+        if(phase == TurnManager.TurnPhase.Player)
+        {
+            if (selectedCharacter != null)
+                selectedCharacter.isSelected = false;
+            selectedCharacter = null;
+
+            foreach (var playerChar in characterManager.PlayerCharacters)
+                playerChar.actionPoints.ResetActionPoints();
+        }
     }
 
     private void Update()
     {
-        Vector3 mouseWorldPosition = cam.ScreenToWorldPoint(Input.mousePosition);
-        bool characterSelected = false;
-
-        if (Input.GetMouseButtonDown(0))
+        if (turnManager.IsPlayerTurn)
         {
-            characterSelected = SelectCharacter(mouseWorldPosition);
-        }
 
-        if (!characterSelected && selectedCharacter != null && !selectedCharacter.isMoving)
-        {
-            FindMarkPath(mouseWorldPosition);
+            var mouseWorldPosition = cam.ScreenToWorldPoint(Input.mousePosition);
+            var newTilePosition = GetTileFromWorldPosition(mouseWorldPosition);
+            var characterSelected = false;
 
             if (Input.GetMouseButtonDown(0))
             {
-                selectedCharacter.BeginMoving();
+                characterSelected = SelectCharacter(mouseWorldPosition);
+                if (characterSelected)
+                    Debug.Log($"Action Points: {selectedCharacter.actionPoints.Remaining}");
             }
-        }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (selectedCharacter == null || !selectedCharacter.isMoving)
+            if (Input.GetMouseButtonDown(1))
             {
-                pathfinding.GetGrid().GetXY(mouseWorldPosition, out int x, out int y);
-                pathfinding.GetNode(x, y).SetIsWalkable(!pathfinding.GetNode(x, y).isWalkable);
-
-                var walkable = pathfinding.GetNode(x, y).isWalkable;
-
-                Vector3Int tilePosition = tilemap.WorldToCell(mouseWorldPosition);
-                tilemap.SetTile(tilePosition, walkable ? walkableTile : obstacleTile);
-
                 if (selectedCharacter != null)
-                    selectedCharacter.currentPath = null;
+                {
+                    selectedCharacter.isSelected = false;
+                    selectedCharacter = null;
+                    ClearMarker();
+                }
+            }
+
+            if (!characterSelected && selectedCharacter != null && !selectedCharacter.isMoving)
+            {
+                if (newTilePosition.HasValue && newTilePosition != currentTilePosition)
+                {
+                    selectedCharacter.currentPath =
+                        pathfinding.FindTilePath(selectedCharacter.gridPosition.x, selectedCharacter.gridPosition.y, mouseWorldPosition);
+
+                    ClearMarker();
+
+                    currentTilePosition = newTilePosition;
+
+                    if (IsAnyCharacterInPosition(currentTilePosition))
+                    {
+                        hidePath = true;
+                    }
+                    else
+                    {
+                        hidePath = false;
+                        SetMarker(currentTilePosition.Value);
+                    }
+                }
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if (selectedCharacter.CanMove())
+                        selectedCharacter.BeginMoving();
+                }
+            }
+
+            if (selectedCharacter && !hidePath)
+            {
+                var pathColor = Color.blue;
+                if (!selectedCharacter.CanMove())
+                    pathColor = Color.red;
+                DrawPath(selectedCharacter.currentPath, pathColor);
+            }
+        }
+    }
+
+    private void InitializeObstacles()
+    {
+        foreach (var pos in obstacles.cellBounds.allPositionsWithin)
+        {
+            Vector3Int tilePosition = new Vector3Int(pos.x, pos.y, pos.z);
+            Vector3 worldPosition = obstacles.CellToWorld(tilePosition);
+
+            if (obstacles.HasTile(tilePosition))
+            {
+                pathfinding.GetGrid().GetXY(worldPosition, out int x, out int y);
+                pathfinding.GetNode(x, y).SetIsWalkable(false);
+            }
+        }
+    }
+
+    private void SetMarker(Vector3Int tilePosition)
+    {
+        overlay.SetTile(tilePosition, markTile);
+    }
+
+    private bool IsAnyCharacterInPosition(Vector3Int? tilePosition)
+    {
+        if (tilePosition.HasValue)
+        {
+            foreach (var character in characterManager.PlayerCharacters)
+            {
+                if (currentTilePosition == character.TilePosition)
+                {
+                    return true;
+                }
             }
         }
 
-        if (selectedCharacter && !hidePath)
-            DrawPath(selectedCharacter.currentPath, selectedCharacter.isMoving ? Color.red : Color.blue);
+        return false;
+    }
+
+    private void ClearMarker()
+    {
+        if (currentTilePosition.HasValue)
+            overlay.SetTile(currentTilePosition.Value, null);
+    }
+
+    private Vector3Int? GetTileFromWorldPosition(Vector3 worldPosition)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(worldPosition, Vector2.zero, Mathf.Infinity, backgroundLayer);
+
+        if (hit.collider != null)
+        {
+            Vector3Int tilePosition = background.WorldToCell(worldPosition);
+            return tilePosition;
+        }
+
+        return null;
     }
 
     private bool SelectCharacter(Vector3 mouseWorldPos)
@@ -92,9 +195,14 @@ public class MapManager : MonoBehaviour
             if (character != null && character != selectedCharacter)
             {
                 if (selectedCharacter != null)
+                {
                     selectedCharacter.isSelected = false;
+                    selectedCharacter.currentPath = null;
+                }
+
                 character.isSelected = true;
                 selectedCharacter = character;
+                selectedCharacter.currentPath = null;
 
                 return true;
             }
@@ -107,7 +215,7 @@ public class MapManager : MonoBehaviour
     {
         if (currentPath != null)
         {
-            for (int i = 0; i < selectedCharacter.currentPath.Count - 1; i++)
+            for (int i = 0; i < currentPath.Count - 1; i++)
             {
                 Debug.DrawLine(
                     new Vector3(
@@ -121,58 +229,25 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    private List<Vector2Int> GetTilePath(List<PathNode> path)
-    {
-        if (path == null)
-            return null;
+    //private List<Vector2Int> GetTilePath(List<PathNode> path)
+    //{
+    //    if (path == null)
+    //        return null;
 
-        var tilePath = new List<Vector2Int>();
-        var origin = new Vector2Int((int)tilemap.localBounds.min.x, (int)tilemap.localBounds.min.y);
+    //    var tilePath = new List<Vector2Int>();
+    //    var origin = new Vector2Int((int)background.localBounds.min.x, (int)background.localBounds.min.y);
 
-        foreach (var item in path)
-        {
-            tilePath.Add(new Vector2Int(item.x, item.y) + origin);
-        }
+    //    foreach (var item in path)
+    //    {
+    //        tilePath.Add(new Vector2Int(item.x, item.y) + origin);
+    //    }
 
-        return tilePath;
-    }
+    //    return tilePath;
+    //}
 
-    private void FindPath()
-    {
-        pathfinding.GetGrid().GetXY(cam.ScreenToWorldPoint(Input.mousePosition), out int x, out int y);
-        List<PathNode> path = pathfinding.FindPath(selectedCharacter.gridPosition.x, selectedCharacter.gridPosition.y, x, y);
-        selectedCharacter.currentPath = GetTilePath(path);
-    }
-
-    private void FindMarkPath(Vector3 mouseWorldPos)
-    {
-        RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero, Mathf.Infinity, backgroundLayer);
-
-        if (hit.collider != null)
-        {
-            Vector3Int tilePosition = overlayTilemap.WorldToCell(mouseWorldPos);
-            if (tilePosition != currentTilePosition)
-            {
-                FindPath();
-
-                if (currentTilePosition.HasValue)
-                    overlayTilemap.SetTile(currentTilePosition.Value, null);
-
-                currentTilePosition = tilePosition;
-
-                foreach (var character in playerCharacters)
-                {
-                    if (currentTilePosition == character.TilePosition)
-                    {
-                        hidePath = true;
-                        return;
-                    }
-
-                    hidePath = false;
-                }
-
-                overlayTilemap.SetTile(currentTilePosition.Value, markTile);
-            }
-        }
-    }
+    //private List<Vector2Int> FindTilePath(int xFrom, int yFrom, int xTo, int yTo)
+    //{
+    //    List<PathNode> path = pathfinding.FindPath(xFrom, yFrom, xTo, yTo);
+    //    return GetTilePath(path);
+    //}
 }

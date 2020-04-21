@@ -12,16 +12,46 @@ public class Pathfinding
     private PathGrid<PathNode> grid;
     private List<PathNode> openList;
     private List<PathNode> closedList;
+    private Vector3 origin;
 
     public Pathfinding(int width, int height, float cellSize, Vector3 origin, bool debug = false)
     {
         Instance = this;
+        this.origin = origin;
         grid = new PathGrid<PathNode>(width, height, cellSize, origin, (PathGrid<PathNode> g, int x, int y) => new PathNode(g, x, y), debug);
     }
 
     public PathGrid<PathNode> GetGrid()
     {
         return grid;
+    }
+
+    public List<Vector2Int> GetTilePath(List<PathNode> path)
+    {
+        if (path == null)
+            return null;
+
+        var tilePath = new List<Vector2Int>();
+        var tileOrigin = new Vector2Int((int)origin.x, (int)origin.y);
+
+        foreach (var item in path)
+        {
+            tilePath.Add(new Vector2Int(item.x, item.y) + tileOrigin);
+        }
+
+        return tilePath;
+    }
+
+    public List<Vector2Int> FindTilePath(int xFrom, int yFrom, int xTo, int yTo)
+    {
+        List<PathNode> path = FindPath(xFrom, yFrom, xTo, yTo);
+        return GetTilePath(path);
+    }
+
+    public List<Vector2Int> FindTilePath(int xFrom, int yFrom, Vector3 endWorldPosition)
+    {
+        grid.GetXY(endWorldPosition, out int x, out int y);
+        return FindTilePath(xFrom, yFrom, x, y);
     }
 
     public List<Vector3> FindPath(Vector3 startWorldPosition, Vector3 endWorldPosition)

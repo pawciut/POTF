@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 public class MissionDraftConfiguration
 {
     public int BaseExp = 20;
+    public int MinHostiles = 0;
     public int MaxHostiles = 0;
     public int Duration = 3;
     public int ForestDamage = 0;

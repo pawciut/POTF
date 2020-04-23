@@ -10,6 +10,12 @@ using UnityEngine;
 /// </summary>
 public partial class MissionGenerator
 {
+    IDraftingPools draftingPools;
+
+    public MissionGenerator(IDraftingPools draftingPools)
+    {
+        this.draftingPools = draftingPools;
+    }
     //Events & missions
     int NextMissionId = 0;
 
@@ -120,27 +126,30 @@ public partial class MissionGenerator
         var missionDescription = descPool[draftedMissionDesc];
 
         //Draft Hostiles
-        var draftedHostiles = DraftHostiles(missionDraft.MaxHostiles, player.CurrentLevel);
+        var draftedHostiles = DraftHostiles(missionDraft, player.CurrentLevel);
 
         //Finalize mission creation
         return new MissionData(missionType, missionDraft, missionName, missionDescription, ++NextMissionId, draftedHostiles);
     }
 
-    List<HostileData> DraftHostiles(int maxHostiles, int playerLevel)
+    public List<HostileData> DraftHostiles(MissionDraftConfiguration missionDraftConfiguration, int playerLevel)
     {
         List<HostileData> hostiles = new List<HostileData>();
 
-        int hostilesCount = UnityEngine.Random.Range(0, maxHostiles+1);
-        var forThisLevel = Config_Hostile_Pool.Where(h => h.MinPlayerLevel <= playerLevel).ToList();
+        int hostilesCount = UnityEngine.Random.Range(0, missionDraftConfiguration.MaxHostiles + 1);
+        var forThisLevel = draftingPools.Config_Hostile_Pool.Where(h => h.MinPlayerLevel <= playerLevel).ToList();
 
         for (int i = 0; i < hostilesCount; ++i)
         {
             //dog elite
             //int hostileDraftIndex = 0;
             int hostileDraftIndex = UnityEngine.Random.Range(0, forThisLevel.Count);
-            var draftedHostile = forThisLevel[hostileDraftIndex];
-            var hostile = new HostileData(draftedHostile);
-            hostiles.Add(hostile);
+            if (hostileDraftIndex < forThisLevel.Count)
+            {
+                var draftedHostile = forThisLevel[hostileDraftIndex];
+                var hostile = new HostileData(draftedHostile);
+                hostiles.Add(hostile);
+            }
         }
 
         return hostiles;

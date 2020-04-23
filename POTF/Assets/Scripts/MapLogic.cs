@@ -75,7 +75,7 @@ public class MapLogic : MonoBehaviour
     public GameObject MissionPanelPrefab;
     public RectTransform MissionContainer;
     public RectTransform[] SpawnPoints = new RectTransform[MaxMissions];
-    MissionGenerator EventGenerator = new MissionGenerator();
+    MissionGenerator EventGenerator = new MissionGenerator(new DraftingPools1());
     /// <summary>
     /// key spawn point index, value mission
     /// </summary>

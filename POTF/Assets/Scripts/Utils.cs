@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public static class Utils
 {
     public const int sortingOrderDefault = 5000;
-    public static TextMeshPro CreateWorldText(string text, Transform parent, Vector3 localPosition, int fontSize, Color color, TextAlignmentOptions textAlignment, int sortingOrder = sortingOrderDefault)
+    public static Text CreateWorldText(string text, Transform parent, Vector3 localPosition, int fontSize, Color color, TextAnchor textAlignment, int sortingOrder = sortingOrderDefault)
     {
-        GameObject gameObject = new GameObject("World_Text", typeof(TextMeshPro));
+        GameObject gameObject = new GameObject("World_Text", typeof(Text));
         Transform transform = gameObject.transform;
         transform.SetParent(parent, false);
         transform.localPosition = localPosition;
-        TextMeshPro textMesh = gameObject.GetComponent<TextMeshPro>();
+        Text textMesh = gameObject.GetComponent<Text>();
         textMesh.alignment = textAlignment;
         textMesh.text = text;
         textMesh.fontSize = fontSize;

@@ -69,9 +69,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.99368012"
-     inkscape:cx="-1066.2349"
-     inkscape:cy="-999.00113"
+     inkscape:zoom="0.49684006"
+     inkscape:cx="-587.16479"
+     inkscape:cy="-1041.908"
      inkscape:document-units="mm"
      inkscape:current-layer="layer12"
      showgrid="true"
@@ -2404,7 +2404,7 @@
          xml:space="preserve"
          id="flowRoot1337"
          style="font-style:normal;font-weight:normal;font-size:18.66666603px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#443e19;fill-opacity:1;stroke:none"
-         transform="matrix(0.26458333,0,0,0.26458333,-52.50356,-0.53502521)"><flowRegion
+         transform="matrix(0.26458333,0,0,0.26458333,-67.827156,3.891637)"><flowRegion
            id="flowRegion1339"
            style="font-size:18.66666603px;fill:#443e19;fill-opacity:1"><rect
              id="rect1341"
@@ -2429,6 +2429,398 @@
              id="rect1345" /></flowRegion><flowPara
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;font-family:Coolsville;-inkscape-font-specification:Coolsville;fill:#443e19;fill-opacity:1"
            id="flowPara1349">Power</flowPara></flowRoot>    </g>
+    <g
+       transform="translate(50.799978,67.733327)"
+       id="g1426">
+      <g
+         transform="matrix(1.4999999,0,0,1.4999999,-939.79995,275.16669)"
+         id="g1365">
+        <g
+           id="g1363"
+           transform="translate(3.3073033,3.3072933)">
+          <g
+             id="g1361"
+             transform="matrix(1.6688582,0,0,1.6688582,-226.51562,-62.288644)"
+             inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground.png"
+             inkscape:export-xdpi="96"
+             inkscape:export-ydpi="96">
+            <rect
+               style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:#41521f;stroke-width:3.96875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect1353"
+               width="16.324558"
+               height="16.324566"
+               x="338.66666"
+               y="93.133331"
+               ry="1.0020683" />
+            <rect
+               ry="1.0020683"
+               y="93.133331"
+               x="338.66666"
+               height="16.324566"
+               width="16.324558"
+               id="rect1355"
+               style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+            <path
+               style="opacity:1;fill:#baad56;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="m 354.54071,93.296896 c 0.10461,0.158329 0.16586,0.348154 0.16586,0.552937 v 14.320587 c 0,0.55515 -0.44685,1.00201 -1.002,1.00201 H 339.384 c -0.20479,0 -0.3946,-0.0613 -0.55293,-0.16588 0.1791,0.27035 0.48514,0.44855 0.83508,0.44855 h 14.32057 c 0.55515,0 1.002,-0.44738 1.002,-1.00252 V 94.132503 c 0,-0.349946 -0.17769,-0.656511 -0.44801,-0.835607 z"
+               id="path1357"
+               inkscape:connector-curvature="0" />
+            <path
+               style="opacity:1;fill:#8c8451;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="m 339.66868,93.13334 c -0.55515,0 -1.00201,0.446861 -1.00201,1.002007 v 14.320573 c 0,0.48682 0.34356,0.8904 0.80254,0.98237 -0.0895,-0.15007 -0.14367,-0.32351 -0.14367,-0.5116 V 94.60612 c 0,-0.555146 0.44685,-1.002006 1.002,-1.002006 h 14.32057 c 0.0682,0 0.1347,0.0068 0.19897,0.01963 -0.17454,-0.292828 -0.4908,-0.490411 -0.85783,-0.490411 z"
+               id="path1359"
+               inkscape:connector-curvature="0" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="g1379"
+         transform="matrix(1.4999999,0,0,1.4999999,-872.06662,275.16669)">
+        <g
+           transform="translate(3.3073033,3.3072933)"
+           id="g1377">
+          <g
+             inkscape:export-ydpi="96"
+             inkscape:export-xdpi="96"
+             inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground.png"
+             transform="matrix(1.6688582,0,0,1.6688582,-226.51562,-62.288644)"
+             id="g1375">
+            <rect
+               ry="1.0020683"
+               y="93.133331"
+               x="338.66666"
+               height="16.324566"
+               width="16.324558"
+               id="rect1367"
+               style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:#41521f;stroke-width:3.96875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+            <rect
+               style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect1369"
+               width="16.324558"
+               height="16.324566"
+               x="338.66666"
+               y="93.133331"
+               ry="1.0020683" />
+            <path
+               inkscape:connector-curvature="0"
+               id="path1371"
+               d="m 354.54071,93.296896 c 0.10461,0.158329 0.16586,0.348154 0.16586,0.552937 v 14.320587 c 0,0.55515 -0.44685,1.00201 -1.002,1.00201 H 339.384 c -0.20479,0 -0.3946,-0.0613 -0.55293,-0.16588 0.1791,0.27035 0.48514,0.44855 0.83508,0.44855 h 14.32057 c 0.55515,0 1.002,-0.44738 1.002,-1.00252 V 94.132503 c 0,-0.349946 -0.17769,-0.656511 -0.44801,-0.835607 z"
+               style="opacity:1;fill:#baad56;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+            <path
+               inkscape:connector-curvature="0"
+               id="path1373"
+               d="m 339.66868,93.13334 c -0.55515,0 -1.00201,0.446861 -1.00201,1.002007 v 14.320573 c 0,0.48682 0.34356,0.8904 0.80254,0.98237 -0.0895,-0.15007 -0.14367,-0.32351 -0.14367,-0.5116 V 94.60612 c 0,-0.555146 0.44685,-1.002006 1.002,-1.002006 h 14.32057 c 0.0682,0 0.1347,0.0068 0.19897,0.01963 -0.17454,-0.292828 -0.4908,-0.490411 -0.85783,-0.490411 z"
+               style="opacity:1;fill:#8c8451;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          </g>
+        </g>
+      </g>
+      <g
+         transform="matrix(1.5000007,0,0,1.5000007,-804.33358,275.16661)"
+         id="g1393">
+        <g
+           id="g1391"
+           transform="translate(3.3073033,3.3072933)">
+          <g
+             id="g1389"
+             transform="matrix(1.6688582,0,0,1.6688582,-226.51562,-62.288644)"
+             inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground.png"
+             inkscape:export-xdpi="96"
+             inkscape:export-ydpi="96">
+            <rect
+               style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:#41521f;stroke-width:3.96875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect1381"
+               width="16.324558"
+               height="16.324566"
+               x="338.66666"
+               y="93.133331"
+               ry="1.0020683" />
+            <rect
+               ry="1.0020683"
+               y="93.133331"
+               x="338.66666"
+               height="16.324566"
+               width="16.324558"
+               id="rect1383"
+               style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+            <path
+               style="opacity:1;fill:#baad56;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="m 354.54071,93.296896 c 0.10461,0.158329 0.16586,0.348154 0.16586,0.552937 v 14.320587 c 0,0.55515 -0.44685,1.00201 -1.002,1.00201 H 339.384 c -0.20479,0 -0.3946,-0.0613 -0.55293,-0.16588 0.1791,0.27035 0.48514,0.44855 0.83508,0.44855 h 14.32057 c 0.55515,0 1.002,-0.44738 1.002,-1.00252 V 94.132503 c 0,-0.349946 -0.17769,-0.656511 -0.44801,-0.835607 z"
+               id="path1385"
+               inkscape:connector-curvature="0" />
+            <path
+               style="opacity:1;fill:#8c8451;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="m 339.66868,93.13334 c -0.55515,0 -1.00201,0.446861 -1.00201,1.002007 v 14.320573 c 0,0.48682 0.34356,0.8904 0.80254,0.98237 -0.0895,-0.15007 -0.14367,-0.32351 -0.14367,-0.5116 V 94.60612 c 0,-0.555146 0.44685,-1.002006 1.002,-1.002006 h 14.32057 c 0.0682,0 0.1347,0.0068 0.19897,0.01963 -0.17454,-0.292828 -0.4908,-0.490411 -0.85783,-0.490411 z"
+               id="path1387"
+               inkscape:connector-curvature="0" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="g1408"
+         transform="matrix(1.4999999,0,0,1.4999999,-736.59995,275.16669)">
+        <g
+           transform="translate(3.3073033,3.3072933)"
+           id="g1406">
+          <g
+             inkscape:export-ydpi="96"
+             inkscape:export-xdpi="96"
+             inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground.png"
+             transform="matrix(1.6688582,0,0,1.6688582,-226.51562,-62.288644)"
+             id="g1403">
+            <rect
+               ry="1.0020683"
+               y="93.133331"
+               x="338.66666"
+               height="16.324566"
+               width="16.324558"
+               id="rect1395"
+               style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:#41521f;stroke-width:3.96875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+            <rect
+               style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect1397"
+               width="16.324558"
+               height="16.324566"
+               x="338.66666"
+               y="93.133331"
+               ry="1.0020683" />
+            <path
+               inkscape:connector-curvature="0"
+               id="path1399"
+               d="m 354.54071,93.296896 c 0.10461,0.158329 0.16586,0.348154 0.16586,0.552937 v 14.320587 c 0,0.55515 -0.44685,1.00201 -1.002,1.00201 H 339.384 c -0.20479,0 -0.3946,-0.0613 -0.55293,-0.16588 0.1791,0.27035 0.48514,0.44855 0.83508,0.44855 h 14.32057 c 0.55515,0 1.002,-0.44738 1.002,-1.00252 V 94.132503 c 0,-0.349946 -0.17769,-0.656511 -0.44801,-0.835607 z"
+               style="opacity:1;fill:#baad56;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+            <path
+               inkscape:connector-curvature="0"
+               id="path1401"
+               d="m 339.66868,93.13334 c -0.55515,0 -1.00201,0.446861 -1.00201,1.002007 v 14.320573 c 0,0.48682 0.34356,0.8904 0.80254,0.98237 -0.0895,-0.15007 -0.14367,-0.32351 -0.14367,-0.5116 V 94.60612 c 0,-0.555146 0.44685,-1.002006 1.002,-1.002006 h 14.32057 c 0.0682,0 0.1347,0.0068 0.19897,0.01963 -0.17454,-0.292828 -0.4908,-0.490411 -0.85783,-0.490411 z"
+               style="opacity:1;fill:#8c8451;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          </g>
+        </g>
+      </g>
+      <flowRoot
+         transform="matrix(0.26458333,0,0,0.26458333,-67.827156,3.891637)"
+         style="font-style:normal;font-weight:normal;font-size:18.66666603px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#443e19;fill-opacity:1;stroke:none"
+         id="flowRoot1416"
+         xml:space="preserve"><flowRegion
+           style="font-size:18.66666603px;fill:#443e19;fill-opacity:1"
+           id="flowRegion1412"><rect
+             style="font-size:18.66666603px;fill:#443e19;fill-opacity:1"
+             y="1600"
+             x="-1312"
+             height="96"
+             width="128"
+             id="rect1410" /></flowRegion><flowPara
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Coolsville;-inkscape-font-specification:Coolsville;fill:#443e19;fill-opacity:1"
+           id="flowPara1414">Power</flowPara></flowRoot>      <flowRoot
+         xml:space="preserve"
+         id="flowRoot1424"
+         style="font-style:normal;font-weight:normal;font-size:18.66666603px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#443e19;fill-opacity:1;stroke:none"
+         transform="matrix(0.26458333,0,0,0.26458333,-50.893836,12.358297)"><flowRegion
+           id="flowRegion1420"
+           style="font-size:18.66666603px;fill:#443e19;fill-opacity:1"><rect
+             id="rect1418"
+             width="128"
+             height="96"
+             x="-1312"
+             y="1600"
+             style="font-size:18.66666603px;fill:#443e19;fill-opacity:1" /></flowRegion><flowPara
+           id="flowPara1422"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;font-family:Coolsville;-inkscape-font-specification:Coolsville;fill:#443e19;fill-opacity:1">Power</flowPara></flowRoot>    </g>
+    <g
+       id="g1501"
+       transform="translate(50.799978,143.93333)">
+      <g
+         id="g1440"
+         transform="matrix(1.4999999,0,0,1.4999999,-939.79995,275.16669)">
+        <g
+           transform="translate(3.3073033,3.3072933)"
+           id="g1438">
+          <g
+             inkscape:export-ydpi="96"
+             inkscape:export-xdpi="96"
+             inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground.png"
+             transform="matrix(1.6688582,0,0,1.6688582,-226.51562,-62.288644)"
+             id="g1436">
+            <rect
+               ry="1.0020683"
+               y="93.133331"
+               x="338.66666"
+               height="16.324566"
+               width="16.324558"
+               id="rect1428"
+               style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:#41521f;stroke-width:3.96875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+            <rect
+               style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect1430"
+               width="16.324558"
+               height="16.324566"
+               x="338.66666"
+               y="93.133331"
+               ry="1.0020683" />
+            <path
+               inkscape:connector-curvature="0"
+               id="path1432"
+               d="m 354.54071,93.296896 c 0.10461,0.158329 0.16586,0.348154 0.16586,0.552937 v 14.320587 c 0,0.55515 -0.44685,1.00201 -1.002,1.00201 H 339.384 c -0.20479,0 -0.3946,-0.0613 -0.55293,-0.16588 0.1791,0.27035 0.48514,0.44855 0.83508,0.44855 h 14.32057 c 0.55515,0 1.002,-0.44738 1.002,-1.00252 V 94.132503 c 0,-0.349946 -0.17769,-0.656511 -0.44801,-0.835607 z"
+               style="opacity:1;fill:#baad56;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+            <path
+               inkscape:connector-curvature="0"
+               id="path1434"
+               d="m 339.66868,93.13334 c -0.55515,0 -1.00201,0.446861 -1.00201,1.002007 v 14.320573 c 0,0.48682 0.34356,0.8904 0.80254,0.98237 -0.0895,-0.15007 -0.14367,-0.32351 -0.14367,-0.5116 V 94.60612 c 0,-0.555146 0.44685,-1.002006 1.002,-1.002006 h 14.32057 c 0.0682,0 0.1347,0.0068 0.19897,0.01963 -0.17454,-0.292828 -0.4908,-0.490411 -0.85783,-0.490411 z"
+               style="opacity:1;fill:#8c8451;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          </g>
+        </g>
+      </g>
+      <g
+         transform="matrix(1.4999999,0,0,1.4999999,-872.06662,275.16669)"
+         id="g1454">
+        <g
+           id="g1452"
+           transform="translate(3.3073033,3.3072933)">
+          <g
+             id="g1450"
+             transform="matrix(1.6688582,0,0,1.6688582,-226.51562,-62.288644)"
+             inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground.png"
+             inkscape:export-xdpi="96"
+             inkscape:export-ydpi="96">
+            <rect
+               style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:#41521f;stroke-width:3.96875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect1442"
+               width="16.324558"
+               height="16.324566"
+               x="338.66666"
+               y="93.133331"
+               ry="1.0020683" />
+            <rect
+               ry="1.0020683"
+               y="93.133331"
+               x="338.66666"
+               height="16.324566"
+               width="16.324558"
+               id="rect1444"
+               style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+            <path
+               style="opacity:1;fill:#baad56;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="m 354.54071,93.296896 c 0.10461,0.158329 0.16586,0.348154 0.16586,0.552937 v 14.320587 c 0,0.55515 -0.44685,1.00201 -1.002,1.00201 H 339.384 c -0.20479,0 -0.3946,-0.0613 -0.55293,-0.16588 0.1791,0.27035 0.48514,0.44855 0.83508,0.44855 h 14.32057 c 0.55515,0 1.002,-0.44738 1.002,-1.00252 V 94.132503 c 0,-0.349946 -0.17769,-0.656511 -0.44801,-0.835607 z"
+               id="path1446"
+               inkscape:connector-curvature="0" />
+            <path
+               style="opacity:1;fill:#8c8451;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="m 339.66868,93.13334 c -0.55515,0 -1.00201,0.446861 -1.00201,1.002007 v 14.320573 c 0,0.48682 0.34356,0.8904 0.80254,0.98237 -0.0895,-0.15007 -0.14367,-0.32351 -0.14367,-0.5116 V 94.60612 c 0,-0.555146 0.44685,-1.002006 1.002,-1.002006 h 14.32057 c 0.0682,0 0.1347,0.0068 0.19897,0.01963 -0.17454,-0.292828 -0.4908,-0.490411 -0.85783,-0.490411 z"
+               id="path1448"
+               inkscape:connector-curvature="0" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="g1468"
+         transform="matrix(1.5000007,0,0,1.5000007,-804.33358,275.16661)">
+        <g
+           transform="translate(3.3073033,3.3072933)"
+           id="g1466">
+          <g
+             inkscape:export-ydpi="96"
+             inkscape:export-xdpi="96"
+             inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground.png"
+             transform="matrix(1.6688582,0,0,1.6688582,-226.51562,-62.288644)"
+             id="g1464">
+            <rect
+               ry="1.0020683"
+               y="93.133331"
+               x="338.66666"
+               height="16.324566"
+               width="16.324558"
+               id="rect1456"
+               style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:#41521f;stroke-width:3.96875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+            <rect
+               style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect1458"
+               width="16.324558"
+               height="16.324566"
+               x="338.66666"
+               y="93.133331"
+               ry="1.0020683" />
+            <path
+               inkscape:connector-curvature="0"
+               id="path1460"
+               d="m 354.54071,93.296896 c 0.10461,0.158329 0.16586,0.348154 0.16586,0.552937 v 14.320587 c 0,0.55515 -0.44685,1.00201 -1.002,1.00201 H 339.384 c -0.20479,0 -0.3946,-0.0613 -0.55293,-0.16588 0.1791,0.27035 0.48514,0.44855 0.83508,0.44855 h 14.32057 c 0.55515,0 1.002,-0.44738 1.002,-1.00252 V 94.132503 c 0,-0.349946 -0.17769,-0.656511 -0.44801,-0.835607 z"
+               style="opacity:1;fill:#baad56;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+            <path
+               inkscape:connector-curvature="0"
+               id="path1462"
+               d="m 339.66868,93.13334 c -0.55515,0 -1.00201,0.446861 -1.00201,1.002007 v 14.320573 c 0,0.48682 0.34356,0.8904 0.80254,0.98237 -0.0895,-0.15007 -0.14367,-0.32351 -0.14367,-0.5116 V 94.60612 c 0,-0.555146 0.44685,-1.002006 1.002,-1.002006 h 14.32057 c 0.0682,0 0.1347,0.0068 0.19897,0.01963 -0.17454,-0.292828 -0.4908,-0.490411 -0.85783,-0.490411 z"
+               style="opacity:1;fill:#8c8451;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          </g>
+        </g>
+      </g>
+      <g
+         transform="matrix(1.4999999,0,0,1.4999999,-736.59995,275.16669)"
+         id="g1483">
+        <g
+           id="g1481"
+           transform="translate(3.3073033,3.3072933)">
+          <g
+             id="g1479"
+             transform="matrix(1.6688582,0,0,1.6688582,-226.51562,-62.288644)"
+             inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\DialogBackground.png"
+             inkscape:export-xdpi="96"
+             inkscape:export-ydpi="96">
+            <rect
+               style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:#41521f;stroke-width:3.96875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="rect1471"
+               width="16.324558"
+               height="16.324566"
+               x="338.66666"
+               y="93.133331"
+               ry="1.0020683" />
+            <rect
+               ry="1.0020683"
+               y="93.133331"
+               x="338.66666"
+               height="16.324566"
+               width="16.324558"
+               id="rect1473"
+               style="opacity:1;fill:#a89f68;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+            <path
+               style="opacity:1;fill:#baad56;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="m 354.54071,93.296896 c 0.10461,0.158329 0.16586,0.348154 0.16586,0.552937 v 14.320587 c 0,0.55515 -0.44685,1.00201 -1.002,1.00201 H 339.384 c -0.20479,0 -0.3946,-0.0613 -0.55293,-0.16588 0.1791,0.27035 0.48514,0.44855 0.83508,0.44855 h 14.32057 c 0.55515,0 1.002,-0.44738 1.002,-1.00252 V 94.132503 c 0,-0.349946 -0.17769,-0.656511 -0.44801,-0.835607 z"
+               id="path1475"
+               inkscape:connector-curvature="0" />
+            <path
+               style="opacity:1;fill:#8c8451;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.61458349;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="m 339.66868,93.13334 c -0.55515,0 -1.00201,0.446861 -1.00201,1.002007 v 14.320573 c 0,0.48682 0.34356,0.8904 0.80254,0.98237 -0.0895,-0.15007 -0.14367,-0.32351 -0.14367,-0.5116 V 94.60612 c 0,-0.555146 0.44685,-1.002006 1.002,-1.002006 h 14.32057 c 0.0682,0 0.1347,0.0068 0.19897,0.01963 -0.17454,-0.292828 -0.4908,-0.490411 -0.85783,-0.490411 z"
+               id="path1477"
+               inkscape:connector-curvature="0" />
+          </g>
+        </g>
+      </g>
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot1491"
+         style="font-style:normal;font-weight:normal;font-size:18.66666603px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#443e19;fill-opacity:1;stroke:none"
+         transform="matrix(0.26458333,0,0,0.26458333,-67.827156,3.891637)"><flowRegion
+           id="flowRegion1487"
+           style="font-size:18.66666603px;fill:#443e19;fill-opacity:1"><rect
+             id="rect1485"
+             width="128"
+             height="96"
+             x="-1312"
+             y="1600"
+             style="font-size:18.66666603px;fill:#443e19;fill-opacity:1" /></flowRegion><flowPara
+           id="flowPara1489"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Coolsville;-inkscape-font-specification:Coolsville;fill:#443e19;fill-opacity:1">Power</flowPara></flowRoot>      <flowRoot
+         transform="matrix(0.26458333,0,0,0.26458333,-50.893836,12.358297)"
+         style="font-style:normal;font-weight:normal;font-size:18.66666603px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#443e19;fill-opacity:1;stroke:none"
+         id="flowRoot1499"
+         xml:space="preserve"><flowRegion
+           style="font-size:18.66666603px;fill:#443e19;fill-opacity:1"
+           id="flowRegion1495"><rect
+             style="font-size:18.66666603px;fill:#443e19;fill-opacity:1"
+             y="1600"
+             x="-1312"
+             height="96"
+             width="128"
+             id="rect1493" /></flowRegion><flowPara
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;font-family:Coolsville;-inkscape-font-specification:Coolsville;fill:#443e19;fill-opacity:1"
+           id="flowPara1497">Power</flowPara></flowRoot>    </g>
   </g>
   <g
      inkscape:label="PaletteLayer"

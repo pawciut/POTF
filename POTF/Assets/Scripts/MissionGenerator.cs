@@ -11,10 +11,12 @@ using UnityEngine;
 public partial class MissionGenerator
 {
     IDraftingPools draftingPools;
+    IRandomGenerator random;
 
-    public MissionGenerator(IDraftingPools draftingPools)
+    public MissionGenerator(IDraftingPools draftingPools, IRandomGenerator randomGenerator)
     {
         this.draftingPools = draftingPools;
+        this.random = randomGenerator;
     }
     //Events & missions
     int NextMissionId = 0;
@@ -37,7 +39,7 @@ public partial class MissionGenerator
     public MissionData GetMission(CharacterData playerData)
     {
         Debug.Log("GetMission");
-        var noEventValue = UnityEngine.Random.Range(0f, 1f);
+        var noEventValue = random.Range(0f, 1f);
         Debug.Log($"GetMission noEventChance:{noEventValue}");
         if (Event_00_NoEvent_Chance.x >= noEventValue)
         {
@@ -45,7 +47,7 @@ public partial class MissionGenerator
         }
         else
         {
-            var eventValue = UnityEngine.Random.Range(0f, 1f);
+            var eventValue = random.Range(0f, 1f);
             Debug.Log($"GetMission eventValue:{eventValue}");
             MissionTypes draftedEventType = MissionTypes.None;
             if (InRange(Event_01_Den_Chance, eventValue))
@@ -136,19 +138,26 @@ public partial class MissionGenerator
     {
         List<HostileData> hostiles = new List<HostileData>();
 
-        int hostilesCount = UnityEngine.Random.Range(0, missionDraftConfiguration.MaxHostiles + 1);
-        var forThisLevel = draftingPools.Config_Hostile_Pool.Where(h => h.MinPlayerLevel <= playerLevel).ToList();
 
-        for (int i = 0; i < hostilesCount; ++i)
+        int draftedHosilesCount = UnityEngine.Random.Range(missionDraftConfiguration.MinHostiles, missionDraftConfiguration.MaxHostiles + 1);
+        var hostilesMatchingPlayerLevel = draftingPools.Config_Hostile_Pool.Where(h => h.MinPlayerLevel <= playerLevel).ToList();
+
+        if (!hostilesMatchingPlayerLevel.Any())
         {
-            //dog elite
-            //int hostileDraftIndex = 0;
-            int hostileDraftIndex = UnityEngine.Random.Range(0, forThisLevel.Count);
-            if (hostileDraftIndex < forThisLevel.Count)
+            Debug.LogWarningFormat("no valid enemies to draft");
+        }
+        else
+        {
+            //drafting hostiles
+            for (int i = 0; i < draftedHosilesCount; ++i)
             {
-                var draftedHostile = forThisLevel[hostileDraftIndex];
-                var hostile = new HostileData(draftedHostile);
-                hostiles.Add(hostile);
+                int hostileDraftIndex = UnityEngine.Random.Range(0, hostilesMatchingPlayerLevel.Count);
+                if (hostileDraftIndex < hostilesMatchingPlayerLevel.Count)
+                {
+                    var draftedHostile = hostilesMatchingPlayerLevel[hostileDraftIndex];
+                    var hostile = new HostileData(draftedHostile);
+                    hostiles.Add(hostile);
+                }
             }
         }
 

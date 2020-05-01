@@ -11,43 +11,44 @@ using UnityEngine.UI;
 /// </summary>
 public class MapLogic : MonoBehaviour
 {
-    public Button StartGameButton;
-    public Button NextTurnButton;
-    
-
     //Player Data
     CharacterData BearData;
+
 
     //analytics
     bool analyticsVisible = false;
     public GameObject AnalyticsPanel;
-
-    //TODO:PTRU
-    List<System.Object> Effects;
-
-    //Calendar Data
-    public int TotalDays;
-    int Day { get { return TotalDays > 0 && TotalDays % 7 == 0 ? 7 : TotalDays % 7; } }
-    int Week { get { return TotalDays > 0 ? (((TotalDays - 1) / 7) % 4) + 1 : 0; } }
-    int Month
-    {
-        get
-        {
-            return TotalDays > 0 ?
-      ((((TotalDays % 28 == 0) ? TotalDays / 28 : TotalDays / 28 + 1)) % 12 == 0 ?
-         12 :
-       (((TotalDays % 28 == 0) ? TotalDays / 28 : TotalDays / 28 + 1)) % 12)
-      : 0;
-        }
-    }
-
-
+    
 
     //Forest Conditions
     int MaxForestHp = 10;
     int CurrentForestHp = 10;
-    public AudioSource ForestDamageSound;
 
+
+
+    //Mission Generator
+    const int MaxMissions = 5;
+    MissionGenerator EventGenerator = new MissionGenerator(new DraftingPools1(), new UnityRandomGenerator());
+    /// <summary>
+    /// key spawn point index, value mission
+    /// </summary>
+    Dictionary<int, MissionData> AvailableMissions = new Dictionary<int, MissionData>(MaxMissions)
+    {
+        { 0, null },
+        { 1, null },
+        { 2, null },
+        { 3, null },
+        { 4, null },
+    };
+    GameObject[] MissionPanels = new GameObject[MaxMissions];
+
+
+
+    //-----------------------Properties for inspector--------------------------
+
+    [Header("UI")]
+    public Button StartGameButton;
+    public Button NextTurnButton;
 
     //Portrait
     public Button Portrait_Button;
@@ -69,35 +70,51 @@ public class MapLogic : MonoBehaviour
     public Text StatusPanel_UnhandledEventsText;
     public Text StatusPanel_ActiveEffectsText;
 
-
-    //Mission Generator
-    public const int MaxMissions = 5;
+    //Missions
     public GameObject MissionPanelPrefab;
     public RectTransform MissionContainer;
     public RectTransform[] SpawnPoints = new RectTransform[MaxMissions];
-    MissionGenerator EventGenerator = new MissionGenerator(new DraftingPools1(), new UnityRandomGenerator());
-    /// <summary>
-    /// key spawn point index, value mission
-    /// </summary>
-    Dictionary<int, MissionData> AvailableMissions = new Dictionary<int, MissionData>(MaxMissions)
-    {
-        { 0, null },
-        { 1, null },
-        { 2, null },
-        { 3, null },
-        { 4, null },
-    };
-    GameObject[] MissionPanels = new GameObject[MaxMissions];
     public MissionResultScript MissionResultPanel;
+
+    //welcome panel
+    public GameObject WelcomePanel;
+    
+    
+    //TODO:PTRU
+    List<System.Object> Effects;
+
+    //Calendar Data
+    int TotalDays;
+    int Day { get { return TotalDays > 0 && TotalDays % 7 == 0 ? 7 : TotalDays % 7; } }
+    int Week { get { return TotalDays > 0 ? (((TotalDays - 1) / 7) % 4) + 1 : 0; } }
+    int Month
+    {
+        get
+        {
+            return TotalDays > 0 ?
+      ((((TotalDays % 28 == 0) ? TotalDays / 28 : TotalDays / 28 + 1)) % 12 == 0 ?
+         12 :
+       (((TotalDays % 28 == 0) ? TotalDays / 28 : TotalDays / 28 + 1)) % 12)
+      : 0;
+        }
+    }
+
+
+
+    [Header("Sound & Music")]
+    public AudioSource ForestDamageSound;
     public AudioSource MissionSuccessSound;
     public AudioSource MissionFailedSound;
 
+    //--------------------Code---------------------------------
 
     // Start is called before the first frame update
     void Start()
     {
         ResetAnalytics();
         UpdateUI();
+
+        WelcomePanel?.SetActive(true);
     }
 
     // Update is called once per frame

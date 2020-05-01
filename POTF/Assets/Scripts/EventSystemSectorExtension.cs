@@ -55,19 +55,18 @@ public class EventSystemSectorExtension : MonoBehaviour
                 if (sectors != null)
                     foreach (var sector in sectors)
                     {
-                        var sectorButton = sector.GetComponent<ButtonWithoutEventSystem>();
                         if (sector.gameObject.GetInstanceID() != curRaysastResult.gameObject.GetInstanceID())
                         {
-                            if (sectorButton.State == ButtonStates.Pressed || sectorButton.State == ButtonStates.Selected)
+                            if (sector.State == ButtonStates.Pressed || sector.State == ButtonStates.Selected)
                             {
                                 //nie zmieniaj
                             }
-                            else if (sectorButton.State != ButtonStates.Selected)
-                                sectorButton.UpdateState(ButtonStates.Default);
+                            else if (sector.State != ButtonStates.Selected)
+                                sector.UpdateState(ButtonStates.Default);
                         }
                         else
                         {
-                            TrySelectSector(sectorButton);
+                            TrySelectSector(sector);
                         }
                     }
                 return true;
@@ -80,19 +79,18 @@ public class EventSystemSectorExtension : MonoBehaviour
         return false;
     }
 
-    void TrySelectSector(ButtonWithoutEventSystem sectorButton)
+    void TrySelectSector(MapSector sectorButton)
     {
         //wylaczyc poprzednio zaznaczone
         foreach (var sector in sectors)
         {
             if (sector.gameObject.GetInstanceID() != sectorButton.gameObject.GetInstanceID())
             {
-                var buttons = sector.GetComponent<ButtonWithoutEventSystem>();
                 if (IsLeftMouseButtonDown)
                 {
-                    if (buttons.State == ButtonStates.Selected || buttons.State == ButtonStates.Pressed)
+                    if (sector.State == ButtonStates.Selected || sector.State == ButtonStates.Pressed)
                     {
-                        buttons.UpdateState(ButtonStates.Default);
+                        sector.UpdateState(ButtonStates.Default);
                     }
                 }
             }
@@ -113,13 +111,12 @@ public class EventSystemSectorExtension : MonoBehaviour
         if (sectors != null)
             foreach (var sector in sectors)
             {
-                var sectorButton = sector.GetComponent<ButtonWithoutEventSystem>();
-                if (sectorButton != null)
+                if (sector != null)
                 {
                     //gdy nie jest zaznaczony, lub przestano przeciagac(rozpoczeto na sektorze)
-                    if (sectorButton.State != ButtonStates.Selected &&
-                            !(sectorButton.State == ButtonStates.Pressed && IsStillDragging))
-                        sectorButton.UpdateState(ButtonStates.Default);
+                    if (sector.State != ButtonStates.Selected &&
+                            !(sector.State == ButtonStates.Pressed && IsStillDragging))
+                        sector.UpdateState(ButtonStates.Default);
                 }
             }
     }

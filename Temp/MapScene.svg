@@ -114,11 +114,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49684006"
-     inkscape:cx="-2695.4384"
-     inkscape:cy="321.45868"
+     inkscape:zoom="0.99368012"
+     inkscape:cx="-326.55117"
+     inkscape:cy="141.10248"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer13"
+     inkscape:current-layer="layer8"
      showgrid="true"
      units="px"
      showborder="false"
@@ -134,7 +134,8 @@
      inkscape:bbox-paths="false"
      inkscape:snap-nodes="true"
      inkscape:snap-others="false"
-     showguides="false">
+     showguides="false"
+     inkscape:lockguides="true">
     <inkscape:grid
        type="xygrid"
        id="grid4529"
@@ -159,15 +160,15 @@
   <image
      sodipodi:absref="C:\Repos\POTF\Temp\MapSceneMockupxcf.png"
      xlink:href="MapSceneMockupxcf.png"
-     y="76.199997"
-     x="-33.866653"
-     id="image5078"
-     preserveAspectRatio="none"
-     height="211.66666"
-     width="338.66666"
-     style="display:inline;opacity:1"
+     inkscape:label="mockup image"
      sodipodi:insensitive="true"
-     inkscape:label="mockup image" />
+     style="display:inline;opacity:1"
+     width="338.66666"
+     height="211.66666"
+     preserveAspectRatio="none"
+     id="image5078"
+     x="-33.866653"
+     y="76.199997" />
   <g
      inkscape:groupmode="layer"
      id="layer2"
@@ -1548,15 +1549,15 @@
   <image
      sodipodi:absref="C:\Repos\POTF\Temp\references/bearpaw.jpg"
      xlink:href="references/bearpaw.jpg"
-     transform="rotate(7.5222341)"
-     style="opacity:0.169"
-     width="13.735164"
-     height="13.735164"
-     preserveAspectRatio="none"
-     id="image1222"
-     x="-55.302525"
+     inkscape:label="bear paw reference"
      y="61.512314"
-     inkscape:label="bear paw reference" />
+     x="-55.302525"
+     id="image1222"
+     preserveAspectRatio="none"
+     height="13.735164"
+     width="13.735164"
+     style="opacity:0.169"
+     transform="rotate(7.5222341)" />
   <g
      inkscape:groupmode="layer"
      id="layer3"
@@ -2145,13 +2146,13 @@
     <image
        sodipodi:absref="C:\Repos\POTF\Temp\references/bear sprinting.jpg"
        xlink:href="references/bear sprinting.jpg"
-       y="58.114876"
-       x="-82.540337"
-       id="image1271"
-       preserveAspectRatio="none"
-       height="9.9506207"
+       style="display:inline;opacity:0.20899999"
        width="9.1469164"
-       style="display:inline;opacity:0.20899999" />
+       height="9.9506207"
+       preserveAspectRatio="none"
+       id="image1271"
+       x="-82.540337"
+       y="58.114876" />
     <image
        y="51.307045"
        x="-105.58096"
@@ -2190,6 +2191,17 @@
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="caacasc"
        inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\Map\Map_PortraitButton_Enabled.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="opacity:1;fill:#b6b6b6;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1370"
+       width="50.799999"
+       height="50.799999"
+       x="-118.53333"
+       y="160.86667"
+       ry="3.1951933"
+       inkscape:export-filename="C:\Repos\POTF\POTF\Assets\Graphics\UI\ButtonBackground2.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
   </g>

@@ -8,7 +8,7 @@ using UnityEngine;
 /// <summary>
 /// character stats and abilities for player and npc
 /// </summary>
-public class CharacterData
+public class CharacterData : ICharacterData
 {
     public string Name { get; set; }
     public int Power { get; set; }

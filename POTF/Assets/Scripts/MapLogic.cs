@@ -376,7 +376,7 @@ public class MapLogic : MonoBehaviour
 
     Action_Attack GetBearCleave()
     {
-        return (Action_Attack)BearData.Actions.FirstOrDefault(a => a is Action_Attack && (a as Action_Attack).AttackType == AttackTypes.Cleave);
+        return (Action_Attack)BearData.Actions.FirstOrDefault(a => a is Action_Attack && (a as Action_Attack).AttackType == AttackTypes.Melee_Cleave);
     }
     Action_Attack GetBearSingleAttack()
     {
@@ -564,7 +564,7 @@ public class MapLogic : MonoBehaviour
             Actions = new List<ActionData>
             {
                 new Action_Attack(),
-                new Action_Attack(1,2, AttackTypes.Cleave),
+                new Action_Attack(1,2, AttackTypes.Melee_Cleave),
                 new Action_Dodge(),
                 new Action_Fix(),
             }

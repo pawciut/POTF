@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 public enum AttackTypes
 {
+    //TODO:powinno byc melee, ranged, a cleave to nie rodzaj ataku ale obszar dzialania
     Melee,
     Ranged,
-    Cleave,
+    Taunt,
+    Melee_Cleave,
 }

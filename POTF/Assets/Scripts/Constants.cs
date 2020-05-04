@@ -53,4 +53,33 @@
     public const string Analytics_MissionsExpired = "Analytics_MissionsExpired";
     public const string Analytics_EnemiesSlained = "Analytics_EnemiesSlained";
 
+    //Attribute_Progress_Levels
+    public static readonly int[] Attribute_Levels = new int[11]{
+        0, //level 0
+        100,//level 1, 0-100
+        220,//level 2, 100-220
+        400,//level 3, 220-400
+        650,//level 4, 400-650
+        950,//level 5, 650-950
+        1270,//level 6, 950-1270
+        1650,//level 7, 1270-1650
+        2050,//level 8, 1650-2050
+        2470,//level 9, 2050-2470
+        2910//level 10, 2470-2910
+    };
+
+    //Attribute_Progress_Levels
+    public static readonly int[] Exp_Levels_Caps = new int[11]{
+        0, //level 0
+        100,//level 1, 0-100
+        200,//level 2, 100-220
+        400,//level 3, 220-400
+        600,//level 4, 400-650
+        800,//level 5, 650-950
+        1000,//level 6, 950-1270
+        1200,//level 7, 1270-1650
+        1500,//level 8, 1650-2050
+        1700,//level 9, 2050-2470
+        2910//level 10, 2470-2910
+    };
 }

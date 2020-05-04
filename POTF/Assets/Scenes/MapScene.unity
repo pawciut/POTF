@@ -3828,6 +3828,7 @@ GameObject:
   - component: {fileID: 503451163}
   - component: {fileID: 503451165}
   - component: {fileID: 503451164}
+  - component: {fileID: 503451166}
   m_Layer: 0
   m_Name: SoldierMissionPanel
   m_TagString: Untagged
@@ -3899,6 +3900,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503451162}
   m_CullTransparentMesh: 0
+--- !u!114 &503451166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503451162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f05e7fab44823346b6af382b9ce8647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name_TMP: {fileID: 543676827}
+  CurrentHP_TMP: {fileID: 245601837}
+  HP_Progress: {fileID: 127604302}
+  AP_TMP: {fileID: 1827772597}
+  MP_TMP: {fileID: 1341988667}
+  Att_Power_TMP: {fileID: 1642510847}
+  Att_Power_Progress: {fileID: 384998005}
+  Att_Agility_TMP: {fileID: 2111770142}
+  Att_Agility_Progress: {fileID: 1271160291}
+  Att_Intellect_TMP: {fileID: 1545392726}
+  Att_Intellect_Progress: {fileID: 845106338}
+  Att_Tenacity_TMP: {fileID: 1134777700}
+  Att_Tenacity_Progress: {fileID: 118342674}
+  Level_Text: {fileID: 1922798596}
+  Level_Progress: {fileID: 542669102}
+  Skill1: {fileID: 1821734}
+  Skill2: {fileID: 721784872}
+  Skill3: {fileID: 620690209}
+  Skill4: {fileID: 1395156424}
+  Skill5: {fileID: 1386813606}
 --- !u!1 &503851118
 GameObject:
   m_ObjectHideFlags: 0
